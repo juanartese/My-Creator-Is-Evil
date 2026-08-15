@@ -34,18 +34,22 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter()
+    private void OnCollisionStay()
     {
-        // Reset jump capability when touching the floor/ground
         
-            isGrounded = true;
+        
+         isGrounded = true;
+        
+           
         
     }
     private void OnCollisionExit()
     {
-        // Reset jump capability when touching the floor/ground
+        
        
             isGrounded = false;
+        
+       
        
     }
     private void OnJump(InputAction.CallbackContext context)
