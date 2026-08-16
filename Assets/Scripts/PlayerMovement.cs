@@ -22,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        var moveDirection = (Vector3)moveInput.action.ReadValue<Vector2>();
-        transform.position += new Vector3 (moveDirection.x,0,moveDirection.y) * (Time.deltaTime * Speed);  
+        var moveDirection = (Vector3)moveInput.action.ReadValue<Vector2>() * Speed;
+        rb.linearVelocity = new Vector3 (moveDirection.x, rb.linearVelocity.y, moveDirection.y);  
         jumpInput.action.performed+= OnJump;
         if (moveDirection.x < 0)
         {
