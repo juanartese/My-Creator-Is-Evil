@@ -24,7 +24,7 @@ public class CameraMovement : MonoBehaviour
         if (Player.position.x < transform.position.x)
         {
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(25, -yRotation, 0), rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(30, -yRotation, 0), rotationSpeed * Time.deltaTime);
 
 
 
@@ -32,7 +32,7 @@ public class CameraMovement : MonoBehaviour
         else
         {
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(25, yRotation, 0), rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(30, yRotation, 0), rotationSpeed * Time.deltaTime);
 
 
         }
