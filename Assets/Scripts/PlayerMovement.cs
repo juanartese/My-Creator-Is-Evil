@@ -36,21 +36,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionStay()
     {
-        
-        
-         isGrounded = true;
-        
-           
-        
+        isGrounded = true;
     }
     private void OnCollisionExit()
     {
-        
-       
-            isGrounded = false;
-        
-       
-       
+        isGrounded = false;
     }
     private void OnJump(InputAction.CallbackContext context)
     {

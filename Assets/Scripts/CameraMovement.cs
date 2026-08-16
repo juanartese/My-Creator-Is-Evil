@@ -26,38 +26,25 @@ public class CameraMovement : MonoBehaviour
        
         if (Player.position.x < transform.position.x)
         {
-
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(30, -yRotation, 0), rotationSpeed * Time.deltaTime);
-
-
-
         }
         else
         {
-
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(30, yRotation, 0), rotationSpeed * Time.deltaTime);
-
-
         }
         if (transform.position.x > Player.position.x -xPosition && transform.position.x < Player.position.x + xPosition)
         {            
-         newPosition = new Vector3(transform.position.x, Player.position.y + ViewHeight, zoff);
-  
-            
+            newPosition = new Vector3(transform.position.x, Player.position.y + ViewHeight, zoff);
         }
         else
         {
-if (Player.position.x < transform.position.x + xPosition)
+            if (Player.position.x < transform.position.x + xPosition)
             {
-            newPosition = Player.position + new Vector3(+xPosition, ViewHeight, zoff);
-            
-                      
+              newPosition = Player.position + new Vector3(+xPosition, ViewHeight, zoff);                      
             }
             if (Player.position.x > transform.position.x - xPosition)
             {
-                newPosition = Player.position + new Vector3(-xPosition, ViewHeight, zoff);
-                
-                
+              newPosition = Player.position + new Vector3(-xPosition, ViewHeight, zoff);
             }
         }
         newPosition = Vector3.Lerp(transform.position, newPosition, speed * Time.deltaTime);
