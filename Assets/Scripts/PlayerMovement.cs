@@ -10,9 +10,10 @@ public class PlayerMovement : MonoBehaviour
     public InputActionReference jumpInput;
     public float jumpForce;
     bool isGrounded;
-    bool unlockDoubleJump = false;
-    bool unlockJetpack = false;
-    bool unlockHook = false;
+    public bool unlockDoubleJump;
+    bool unlockJetpack;
+    bool unlockHook;
+    bool dJump;
     public Rigidbody rb;
     void Start()
     {
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionStay()
     {
         isGrounded = true;
+        dJump = true;
     }
     private void OnCollisionExit()
     {
@@ -48,6 +50,14 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + jumpForce, rb.linearVelocity.z);
             isGrounded = false;
+        }
+        else 
+        {
+            if(unlockDoubleJump && dJump)
+            {
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + jumpForce, rb.linearVelocity.z);
+                dJump = false;
+            }
         }
     }
 }
