@@ -21,6 +21,7 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        var newpos = new Vector3(0, Player.position.y + ViewHeight, zoff);
         if (Player.position.x < transform.position.x)
         {
 
@@ -37,22 +38,22 @@ public class CameraMovement : MonoBehaviour
 
         }
         if (transform.position.x < Player.position.x -xPosition || transform.position.x > Player.position.x + xPosition)
-        {
-            var newpos = new Vector3(0, 0, 0);
+        {            
             if (Player.position.x < transform.position.x + xPosition)
             {
-            newpos = Player.position + new Vector3(+xPosition, ViewHeight,0);
-            newpos.z = zoff;
-            newpos = Vector3.Lerp(transform.position, newpos, speed * Time.deltaTime);           
+            newpos = Player.position + new Vector3(+xPosition, ViewHeight, zoff);
+            
+                     
             }
             if (Player.position.x > transform.position.x - xPosition)
             {
-                newpos = Player.position + new Vector3(-xPosition, ViewHeight, 0);
-                newpos.z = zoff;
-                newpos = Vector3.Lerp(transform.position, newpos, speed * Time.deltaTime);
+                newpos = Player.position + new Vector3(-xPosition, ViewHeight, zoff);
+                
+               
             }
-            transform.position = newpos;
+            
         }
-      
+        newpos = Vector3.Lerp(transform.position, newpos, speed * Time.deltaTime);
+        transform.position = newpos;
     }
 }
