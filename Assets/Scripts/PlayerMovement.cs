@@ -10,19 +10,20 @@ public class PlayerMovement : MonoBehaviour
     public InputActionReference jumpInput;
     public float jumpForce;
     bool isGrounded;
-    bool unlockDoubleJump = false;
-    bool unlockJetpack = false;
-    bool unlockHook = false;
+    public bool unlockDoubleJump;
+    bool unlockJetpack;
+    bool unlockHook;
+    bool dJump;
     public Rigidbody rb;
     void Start()
     {
         isGrounded = true;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        var moveDirection = (Vector3)moveInput.action.ReadValue<Vector2>();
-        transform.position += new Vector3 (moveDirection.x,0,moveDirection.y) * (Time.deltaTime * Speed);  
+        var moveDirection = (Vector3)moveInput.action.ReadValue<Vector2>() * Speed;
+        rb.linearVelocity = new Vector3 (moveDirection.x, rb.linearVelocity.y, moveDirection.y);  
         jumpInput.action.performed+= OnJump;
         if (moveDirection.x < 0)
         {
@@ -34,19 +35,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter()
+    private void OnCollisionStay()
     {
-        // Reset jump capability when touching the floor/ground
-        
-            isGrounded = true;
-        
+        isGrounded = true;
+        dJump = true;
     }
     private void OnCollisionExit()
     {
-        // Reset jump capability when touching the floor/ground
-       
-            isGrounded = false;
-       
+        isGrounded = false;
     }
     private void OnJump(InputAction.CallbackContext context)
     {
@@ -54,6 +50,14 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + jumpForce, rb.linearVelocity.z);
             isGrounded = false;
+        }
+        else 
+        {
+            if(unlockDoubleJump && dJump)
+            {
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + jumpForce, rb.linearVelocity.z);
+                dJump = false;
+            }
         }
     }
 }
