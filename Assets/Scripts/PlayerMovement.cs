@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = true;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         var moveDirection = (Vector3)moveInput.action.ReadValue<Vector2>() * Speed;
         rb.linearVelocity = new Vector3 (moveDirection.x, rb.linearVelocity.y, moveDirection.y);  

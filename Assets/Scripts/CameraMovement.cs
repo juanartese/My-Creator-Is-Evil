@@ -10,18 +10,19 @@ public class CameraMovement : MonoBehaviour
     public float yRotation;
     public float xPosition;
     public float rotationSpeed;
+    public float zOff;
     private Vector3 newPosition;
 
 
     // Start is called before the first frame update
     void Awake()
     {
-        zoff = transform.position.z;
+        
 
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
        
         if (Player.position.x < transform.position.x)
@@ -34,17 +35,17 @@ public class CameraMovement : MonoBehaviour
         }
         if (transform.position.x > Player.position.x -xPosition && transform.position.x < Player.position.x + xPosition)
         {            
-            newPosition = new Vector3(transform.position.x, Player.position.y + ViewHeight, zoff);
+            newPosition = new Vector3(transform.position.x, Player.position.y + ViewHeight, Player.position.z + zOff);
         }
         else
         {
             if (Player.position.x < transform.position.x + xPosition)
             {
-              newPosition = Player.position + new Vector3(+xPosition, ViewHeight, zoff);                      
+              newPosition = Player.position + new Vector3(+xPosition, ViewHeight, zOff);                      
             }
             if (Player.position.x > transform.position.x - xPosition)
             {
-              newPosition = Player.position + new Vector3(-xPosition, ViewHeight, zoff);
+              newPosition = Player.position + new Vector3(-xPosition, ViewHeight, zOff);
             }
         }
         newPosition = Vector3.Lerp(transform.position, newPosition, speed * Time.deltaTime);
