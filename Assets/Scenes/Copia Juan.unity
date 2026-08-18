@@ -521,7 +521,7 @@ Transform:
   m_GameObject: {fileID: 590049441}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30, y: 6, z: -2.5}
+  m_LocalPosition: {x: 40, y: 8, z: -2.5}
   m_LocalScale: {x: 5, y: 2, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -922,7 +922,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 5e4f08e8af5c25f419b1166eefb49eaa, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: f78c1ff10de055c4caefb7d0c55cf379, type: 2}
+      objectReference: {fileID: 2100000, guid: f4a2a46eb8e0e584ab450c7c6e75a289, type: 2}
     - target: {fileID: 919132149155446097, guid: 5e4f08e8af5c25f419b1166eefb49eaa, type: 3}
       propertyPath: m_Name
       value: Pod
@@ -1013,7 +1013,7 @@ Transform:
   m_GameObject: {fileID: 853533353}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.5, y: 4, z: -3}
+  m_LocalPosition: {x: 22.5, y: 6, z: -3}
   m_LocalScale: {x: 3, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1252,7 +1252,10 @@ MonoBehaviour:
   moveInput: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jumpInput: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jumpForce: 30
+  dJumpForce: 15
   unlockDoubleJump: 0
+  unlockJetpack: 0
+  unlockHook: 0
   rb: {fileID: 925443840}
 --- !u!65 &925443839
 BoxCollider:
@@ -1343,7 +1346,7 @@ Transform:
   m_GameObject: {fileID: 963283298}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.5, y: 5, z: -3}
+  m_LocalPosition: {x: 30, y: 7, z: -3}
   m_LocalScale: {x: 3, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1366,7 +1369,7 @@ MonoBehaviour:
   materialVerde: {fileID: 2100000, guid: d34aa1c4d6817d74f9a45859e27f3edd, type: 2}
   materialAmarillo: {fileID: 2100000, guid: 9d3ae19f5f44ae34ab4e9afdd8240eb4, type: 2}
   materialRojo: {fileID: 2100000, guid: 07bf8432df3fcee4f893e3a4c9f419aa, type: 2}
-  tiempoAmarillo: 0.2
+  tiempoAmarillo: 0.1
   tiempoRojo: 0.8
 --- !u!65 &963283301
 BoxCollider:
@@ -1471,7 +1474,7 @@ Transform:
   m_GameObject: {fileID: 1030908100}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.5, y: 3, z: -3}
+  m_LocalPosition: {x: 15, y: 5, z: -3}
   m_LocalScale: {x: 3, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1805,7 +1808,7 @@ Transform:
   m_GameObject: {fileID: 1746887120}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 1, z: -2.5}
+  m_LocalPosition: {x: 5, y: 3, z: -2.5}
   m_LocalScale: {x: 5, y: 2, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []

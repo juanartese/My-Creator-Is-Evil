@@ -9,10 +9,11 @@ public class PlayerMovement : MonoBehaviour
     public InputActionReference moveInput;
     public InputActionReference jumpInput;
     public float jumpForce;
+    public float dJumpForce;
     bool isGrounded;
     public bool unlockDoubleJump;
-    bool unlockJetpack;
-    bool unlockHook;
+    public bool unlockJetpack;
+    public bool unlockHook;
     bool dJump;
     public Rigidbody rb;
     void Start()
@@ -55,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if(unlockDoubleJump && dJump)
             {
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + jumpForce, rb.linearVelocity.z);
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + dJumpForce, rb.linearVelocity.z);
                 dJump = false;
             }
         }
