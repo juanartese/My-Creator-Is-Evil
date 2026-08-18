@@ -10,11 +10,12 @@ public class PlayerMovement : MonoBehaviour
     public InputActionReference jumpInput;
     public float jumpForce;
     public float dJumpForce;
-    bool isGrounded;
+    public float jPackForce;
+    private bool isGrounded;
     public bool unlockDoubleJump;
     public bool unlockJetpack;
     public bool unlockHook;
-    bool dJump;
+    private bool dJump;
     public Rigidbody rb;
     void Start()
     {
@@ -33,8 +34,7 @@ public class PlayerMovement : MonoBehaviour
         if (moveDirection.x > 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-
+        } 
     }
     private void OnCollisionStay()
     {
@@ -61,4 +61,5 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+ 
 }
