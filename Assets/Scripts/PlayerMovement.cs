@@ -36,10 +36,18 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
         } 
     }
-    private void OnCollisionStay()
+    private void OnCollisionStay(Collision collision)
     {
-        isGrounded = true;
-        dJump = true;
+        float parteSuperior = collision.transform.position.y + (collision.transform.localScale.y/2);
+
+        float playerFeet = GetComponent<Collider>().bounds.min.y;
+
+        if (parteSuperior <= playerFeet + 0.1f)
+        {
+            isGrounded = true;
+            dJump = true;
+        }
+            
     }
     private void OnCollisionExit()
     {

@@ -11571,7 +11571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc97d0af9e3465a4dafb31d20d49dbd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempoVisible: 2
+  tiempoVisible: 2.3
   tiempoInvisible: 1.5
   materialVerde: {fileID: 2100000, guid: d34aa1c4d6817d74f9a45859e27f3edd, type: 2}
   materialAmarillo: {fileID: 2100000, guid: 9d3ae19f5f44ae34ab4e9afdd8240eb4, type: 2}
@@ -17054,7 +17054,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925443836}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 61f158c53e04972448ad3493d6144968, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -17154,7 +17154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc97d0af9e3465a4dafb31d20d49dbd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempoVisible: 2.5
+  tiempoVisible: 2.8
   tiempoInvisible: 1
   materialVerde: {fileID: 2100000, guid: d34aa1c4d6817d74f9a45859e27f3edd, type: 2}
   materialAmarillo: {fileID: 2100000, guid: 9d3ae19f5f44ae34ab4e9afdd8240eb4, type: 2}
@@ -22115,7 +22115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc97d0af9e3465a4dafb31d20d49dbd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempoVisible: 1.5
+  tiempoVisible: 1.8
   tiempoInvisible: 2
   materialVerde: {fileID: 2100000, guid: d34aa1c4d6817d74f9a45859e27f3edd, type: 2}
   materialAmarillo: {fileID: 2100000, guid: 9d3ae19f5f44ae34ab4e9afdd8240eb4, type: 2}
@@ -32427,8 +32427,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893750314}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
