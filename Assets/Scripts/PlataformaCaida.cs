@@ -55,10 +55,11 @@ public class PlataformaCaida : MonoBehaviour
     void Volver()
     {
         rb.useGravity = false;
-        rb.isKinematic = true;
 
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+
+        rb.isKinematic = true;
 
         transform.position = posicionInicial;
         transform.rotation = rotacionInicial;
