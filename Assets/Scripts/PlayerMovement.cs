@@ -27,14 +27,6 @@ public class PlayerMovement : MonoBehaviour
         var moveDirection = (Vector3)moveInput.action.ReadValue<Vector2>() * Speed;
         rb.linearVelocity = new Vector3 (moveDirection.x, rb.linearVelocity.y, moveDirection.y);  
         jumpInput.action.performed+= OnJump;
-        if (moveDirection.x < 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
-        if (moveDirection.x > 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        } 
     }
     private void OnCollisionStay(Collision collision)
     {
