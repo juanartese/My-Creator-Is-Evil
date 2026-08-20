@@ -5,7 +5,13 @@ public class BotonPuerta : MonoBehaviour
     public Material materialRojo;
     public Material materialVerde;
 
+    public Material luzIndicadoraRoja;
+    public Material luzIndicadoraVerde;
+
     public PuertaLaboratorio puerta;
+    public Light luzPuerta;
+
+    public Renderer luzIndicadora;
 
     private Renderer renderBoton;
     private Vector3 posicionInicial;
@@ -16,6 +22,9 @@ public class BotonPuerta : MonoBehaviour
     {
         renderBoton = GetComponent<Renderer>();
         posicionInicial = transform.position;
+
+        luzPuerta.color = Color.red;
+        luzIndicadora.material = luzIndicadoraRoja;
     }
 
     void OnTriggerEnter(Collider otro)
@@ -26,6 +35,9 @@ public class BotonPuerta : MonoBehaviour
 
             renderBoton.material = materialVerde;
             transform.position = posicionInicial + new Vector3(0, -0.05f, 0);
+
+            luzPuerta.color = Color.green;
+            luzIndicadora.material = luzIndicadoraVerde;
 
             puerta.AbrirPuerta();
 
@@ -45,6 +57,9 @@ public class BotonPuerta : MonoBehaviour
 
                 renderBoton.material = materialRojo;
                 transform.position = posicionInicial;
+
+                luzPuerta.color = Color.red;
+                luzIndicadora.material = luzIndicadoraRoja;
 
                 puerta.CerrarPuerta();
 
