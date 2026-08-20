@@ -23,17 +23,16 @@ public class CameraMovement1 : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {
-
-        if (Player.rotation.y < 0)
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(30, -yRotation, 0), rotationSpeed * Time.deltaTime);
-            newPosition = Player.position + new Vector3(+xPosition, ViewHeight, zOff);
-        }
-        else
+    {  
+        if (Player.eulerAngles.y < 165&& Player.eulerAngles.y >15)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(30, yRotation, 0), rotationSpeed * Time.deltaTime);
             newPosition = Player.position + new Vector3(-xPosition, ViewHeight, zOff);
+        }
+        if (Player.eulerAngles.y < 345 && Player.eulerAngles.y > 195)
+        {  
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(30, -yRotation, 0), rotationSpeed * Time.deltaTime);
+            newPosition = Player.position + new Vector3(+xPosition, ViewHeight, zOff);
         }
         newPosition = Vector3.Lerp(transform.position, newPosition, speed * Time.deltaTime);
         transform.position = newPosition;
