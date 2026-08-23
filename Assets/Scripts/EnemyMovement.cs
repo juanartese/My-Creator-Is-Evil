@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ClapClapMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     public Transform Player;
     float distance;
