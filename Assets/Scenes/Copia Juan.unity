@@ -6571,7 +6571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ce4e2b5d0f07e4eb23ea8bd977017e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClapClapMovement: {fileID: 658860982}
+  Movement: {fileID: 658860982}
   Attack: {fileID: 658860982}
   Player: {fileID: 925443837}
   activeDistance: 20
