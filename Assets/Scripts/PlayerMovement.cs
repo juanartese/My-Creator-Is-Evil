@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
         var moveDirection = (Vector3)moveInput.action.ReadValue<Vector2>() * Speed;
         rb.linearVelocity = new Vector3 (moveDirection.x, rb.linearVelocity.y, moveDirection.y);  
         jumpInput.action.performed+= OnJump;
+
     }
     private void OnCollisionStay(Collision collision)
     {

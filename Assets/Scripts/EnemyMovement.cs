@@ -17,15 +17,9 @@ public class EnemyMovement : MonoBehaviour
     void FixedUpdate()
     {
         distance = Vector3.Distance(transform.position, Player.position);
-        if (distance < activeDistance)
+        if (distance < activeDistance && distance > attackRange)
         {
-            Vector3 direction = (Vector3)Player.position - (Vector3)transform.position;
-            float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, angle, 0);
-            if (distance > attackRange)
-            {
-                transform.position += transform.forward * speed * Time.deltaTime;
-            }
+            transform.position += transform.forward * speed * Time.deltaTime;
         }
     }
 }

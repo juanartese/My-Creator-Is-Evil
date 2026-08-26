@@ -6416,6 +6416,7 @@ GameObject:
   - component: {fileID: 658860983}
   - component: {fileID: 658860982}
   - component: {fileID: 658860987}
+  - component: {fileID: 658860988}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -6578,6 +6579,21 @@ MonoBehaviour:
   attackRange: 4
   delay: 1
   duration: 1
+--- !u!114 &658860988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658860980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f28969b29696640a00b35d398ce788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 925443837}
+  activeDistance: 25
+  turnSpeed: 10
 --- !u!1 &683425870
 GameObject:
   m_ObjectHideFlags: 0
