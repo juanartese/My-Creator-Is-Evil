@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Drawing;
 using UnityEngine;
 
 public class EnemyAttackSecuence : MonoBehaviour
@@ -6,6 +7,7 @@ public class EnemyAttackSecuence : MonoBehaviour
     public MonoBehaviour Movement;
     public MonoBehaviour Attack;
     public Transform Player;
+    public GameObject attackType;
     float distance;
     public float activeDistance;
     public float attackRange;
@@ -33,6 +35,7 @@ public class EnemyAttackSecuence : MonoBehaviour
         if (distance < activeDistance)
         {
             Movement.enabled = false;
+            Instantiate(attackType, transform.position, transform.rotation);
         }
         StartCoroutine(AttackSecuence());
     }
