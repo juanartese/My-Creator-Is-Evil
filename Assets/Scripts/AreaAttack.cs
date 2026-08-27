@@ -16,7 +16,7 @@ public class AreaAttack : MonoBehaviour
         renderAttack = GetComponent<Renderer>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         distance = Vector2.Distance(new Vector2(transform.position.x,transform.position.z), new Vector2(playerTransform.position.x, playerTransform.position.z));
         transform.localScale += new Vector3(1, 1, 1) * expansionSpeed * Time.deltaTime;
