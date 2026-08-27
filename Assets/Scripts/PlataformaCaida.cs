@@ -23,21 +23,24 @@ public class PlataformaCaida : MonoBehaviour
         chispas.Stop();
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.name == "Player" && !activada)
+        if (collision.gameObject.CompareTag("Player") && !activada)
         {
-            ContactPoint contacto = collision.contacts[0];
-
             float parteSuperior = GetComponent<Collider>().bounds.max.y;
 
-            if (contacto.point.y >= parteSuperior - 0.1f)
+            foreach (ContactPoint contacto in collision.contacts)
             {
-                activada = true;
+                if (contacto.point.y >= parteSuperior - 0.1f)
+                {
+                    activada = true;
 
-                chispas.Play();
+                    chispas.Play();
 
-                Invoke("Caer", tiempoAntesDeCaer);
+                    Invoke("Caer", tiempoAntesDeCaer);
+
+                    break;
+                }
             }
         }
     }
