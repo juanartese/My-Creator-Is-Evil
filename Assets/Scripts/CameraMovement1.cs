@@ -12,6 +12,7 @@ public class CameraMovement1 : MonoBehaviour
     public float rotationSpeed;
     public float zOff;
     private Vector3 newPosition;
+    private int camType = 0;
 
 
     // Start is called before the first frame update
@@ -24,13 +25,21 @@ public class CameraMovement1 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {  
-        if (Player.eulerAngles.y < 180&& Player.eulerAngles.y >0)
+        if (Player.eulerAngles.y < 160&& Player.eulerAngles.y >0)
+        {
+            camType = 1;
+        }
+        if (Player.eulerAngles.y < 360 && Player.eulerAngles.y > 200)
+        {
+            camType = 0;
+        }
+        if (camType == 1)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(30, yRotation, 0), rotationSpeed * Time.deltaTime);
             newPosition = Player.position + new Vector3(-xPosition, ViewHeight, zOff);
         }
-        if (Player.eulerAngles.y < 360 && Player.eulerAngles.y > 180)
-        {  
+        if (camType == 0)
+        {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(30, -yRotation, 0), rotationSpeed * Time.deltaTime);
             newPosition = Player.position + new Vector3(+xPosition, ViewHeight, zOff);
         }

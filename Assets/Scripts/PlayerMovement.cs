@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public bool unlockHook;
     private bool dJump;
     public Rigidbody rb;
+    public float coyoteTime = 0.1f;
+    private float coyoteTimer = 0f;
     void Start()
     {
         isGrounded = true;
@@ -27,6 +29,14 @@ public class PlayerMovement : MonoBehaviour
         var moveDirection = (Vector3)moveInput.action.ReadValue<Vector2>() * Speed;
         rb.linearVelocity = new Vector3 (moveDirection.x, rb.linearVelocity.y, moveDirection.y);  
         jumpInput.action.performed+= OnJump;
+        if (isGrounded)
+        {
+            coyoteTimer = 0f;
+        }
+        else
+        {
+            coyoteTimer += Time.deltaTime;
+        }
 
     }
     private void OnCollisionStay(Collision collision)
@@ -39,19 +49,19 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
             dJump = true;
+            coyoteTimer = 0f;
         }
             
     }
     private void OnCollisionExit()
     {
-        isGrounded = false;
+          isGrounded = false;
     }
     private void OnJump(InputAction.CallbackContext context)
     {
-        if (isGrounded)
+        if (coyoteTimer <= coyoteTime)
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + jumpForce, rb.linearVelocity.z);
-            isGrounded = false;
         }
         else 
         {
@@ -61,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
                 dJump = false;
             }
         }
+        isGrounded = false;
     }
  
 }
