@@ -2511,6 +2511,7 @@ MonoBehaviour:
   Speed: 12
   moveInput: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jumpInput: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  attackInput: {fileID: 0}
   jumpForce: 30
   dJumpForce: 0
   jPackForce: 0
@@ -2518,6 +2519,10 @@ MonoBehaviour:
   unlockJetpack: 0
   unlockHook: 0
   rb: {fileID: 925443840}
+  coyoteTime: 0.1
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  bulletForce: 200
 --- !u!65 &925443839
 BoxCollider:
   m_ObjectHideFlags: 0
