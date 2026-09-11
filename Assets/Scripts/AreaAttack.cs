@@ -5,7 +5,7 @@ public class AreaAttack : MonoBehaviour
     public float startingSize;
     public float duration;
     public float expansionSpeed;
-    public Transform playerTransform;
+//    public GameObject playerTransform;
     float distance;
     private Renderer renderAttack;
     public Material luzIndicadoraRoja;
@@ -18,13 +18,14 @@ public class AreaAttack : MonoBehaviour
 
     void Update()
     {
-        distance = Vector3.Distance(this.transform.position, playerTransform.position);
+//        playerTransform = PlayerTransform;
+//        distance = Vector3.Distance(this.transform.position, playerTransform.transform.position);
         transform.localScale += new Vector3(1, 1, 1) * expansionSpeed * Time.deltaTime;
-        if (distance > transform.localScale.x/2 -1 && distance < transform.localScale.x/2 + 1)
-        {
+//        if (distance > transform.localScale.x/2 -1 && distance < transform.localScale.x/2 + 1)
+//        {
             
-                renderAttack.material = luzIndicadoraRoja;
+//                renderAttack.material = luzIndicadoraRoja;
           
-        }
+//        }
     }
 }

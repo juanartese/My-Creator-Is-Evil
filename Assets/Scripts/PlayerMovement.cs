@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float Speed;
     public InputActionReference moveInput;
     public InputActionReference jumpInput;
+    public InputActionReference attackInput;
     public float jumpForce;
     public float dJumpForce;
     public float jPackForce;
@@ -19,6 +20,10 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
     public float coyoteTime = 0.1f;
     private float coyoteTimer = 0f;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firePoint;
+    
+    [SerializeField] private float bulletForce = 200f;
     void Start()
     {
         isGrounded = true;
@@ -29,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         var moveDirection = (Vector3)moveInput.action.ReadValue<Vector2>() * Speed;
         rb.linearVelocity = new Vector3 (moveDirection.x, rb.linearVelocity.y, moveDirection.y);  
         jumpInput.action.performed+= OnJump;
+        attackInput.action.performed += OnFire;
         if (isGrounded)
         {
             coyoteTimer = 0f;
@@ -37,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         {
             coyoteTimer += Time.deltaTime;
         }
-
+        
     }
     private void OnCollisionStay(Collision collision)
     {
@@ -73,5 +79,13 @@ public class PlayerMovement : MonoBehaviour
         }
         isGrounded = false;
     }
- 
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        // Only fire when the button is first pressed down
+        if (context.performed)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        }
+    }
+
 }
