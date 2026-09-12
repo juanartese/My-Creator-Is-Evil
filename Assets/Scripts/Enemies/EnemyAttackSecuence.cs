@@ -13,6 +13,7 @@ public class EnemyAttackSecuence : MonoBehaviour
     public float attackRange;
     public float delay;
     public float duration;
+    public Transform shotPoint;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,7 +36,7 @@ public class EnemyAttackSecuence : MonoBehaviour
         if (distance < activeDistance)
         {
             Movement.enabled = false;
-            Instantiate(attackType, transform.position, transform.rotation);
+            Instantiate(attackType, shotPoint.position, shotPoint.rotation);
         }
         StartCoroutine(AttackSecuence());
     }

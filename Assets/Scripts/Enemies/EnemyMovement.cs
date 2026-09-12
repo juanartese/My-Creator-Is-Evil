@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
     public float activeDistance;
     public float attackRange;
     public float speed;
-
+    public float Life;
     void Start()
     {
         
@@ -20,6 +20,10 @@ public class EnemyMovement : MonoBehaviour
         if (distance < activeDistance && distance > attackRange)
         {
             transform.position += transform.forward * speed * Time.deltaTime;
+        }
+        if (Life <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
