@@ -6,12 +6,16 @@ public class PisoElectrico : MonoBehaviour
     private float tiempoActual = 0f;
     private bool jugadorEnPiso = false;
 
+    private PlayerHealth playerHealth;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             jugadorEnPiso = true;
             tiempoActual = 0f;
+
+            playerHealth = other.GetComponent<PlayerHealth>();
 
             Debug.Log("ENTRO AL PISO ELECTRICO");
         }
@@ -37,6 +41,12 @@ public class PisoElectrico : MonoBehaviour
             if (tiempoActual >= tiempoEntreDanio)
             {
                 Debug.Log("Jugador recibe daño electrico");
+
+                if (playerHealth != null)
+                {
+                    playerHealth.RecibirDanio(25);
+                }
+
                 tiempoActual = 0f;
             }
         }
