@@ -39,6 +39,20 @@ public class PlayerHealth : MonoBehaviour
         print("Vida: " + vidaActual);
     }
 
+    public void RecuperarVida(int cantidad)
+    {
+        vidaActual += cantidad;
+
+        if (vidaActual > vidaMaxima)
+        {
+            vidaActual = vidaMaxima;
+        }
+
+        ActualizarBarra();
+
+        print("Vida: " + vidaActual);
+    }
+
     private void ActualizarBarra()
     {
         float porcentajeActual = (float)vidaActual / vidaMaxima;
