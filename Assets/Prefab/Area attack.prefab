@@ -79,6 +79,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingSize: 1
   duration: 2
-  expansionSpeed: 35
+  expansionSpeed: 40
   player: {fileID: 0}
   luzIndicadoraRoja: {fileID: 2100000, guid: a435798f8d601074c973ba6bc0e85cb3, type: 2}

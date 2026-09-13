@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2639039251215049958}
-  speed: 35
-  duration: 2.5
+  speed: 30
+  duration: 0.8
   damage: 20
 --- !u!65 &-4968695492657896927
 BoxCollider:
