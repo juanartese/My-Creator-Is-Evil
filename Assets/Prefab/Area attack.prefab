@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingSize: 1
-  duration: 3
-  expansionSpeed: 15
-  playerTransform: {fileID: 2891074997309094772, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
+  duration: 2
+  expansionSpeed: 35
+  player: {fileID: 0}
   luzIndicadoraRoja: {fileID: 2100000, guid: a435798f8d601074c973ba6bc0e85cb3, type: 2}

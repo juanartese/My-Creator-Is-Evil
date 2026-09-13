@@ -11,6 +11,7 @@ public class EnemyAttackSecuence : MonoBehaviour
     float distance;
     public float activeDistance;
     public float attackRange;
+    public float execTime;
     public float delay;
     public float duration;
     public Transform shotPoint;
@@ -36,6 +37,8 @@ public class EnemyAttackSecuence : MonoBehaviour
         if (distance < activeDistance)
         {
             Movement.enabled = false;
+            WaitForSeconds attackExecTime = new WaitForSeconds(execTime);
+            yield return attackExecTime;
             Instantiate(attackType, shotPoint.position, shotPoint.rotation);
         }
         StartCoroutine(AttackSecuence());

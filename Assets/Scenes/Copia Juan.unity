@@ -1390,7 +1390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2891074997309094772, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.13
+      value: -15.95
       objectReference: {fileID: 0}
     - target: {fileID: 2891074997309094772, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2956,8 +2956,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 670448153}
-  activeDistance: 25
-  turnSpeed: 10
+  activeDistance: 40
+  turnSpeed: 3
 --- !u!114 &1125118668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2974,10 +2974,11 @@ MonoBehaviour:
   Attack: {fileID: 1125118669}
   Player: {fileID: 670448153}
   attackType: {fileID: 3202735747378804846, guid: e876f6edf90950a48901a402311011f5, type: 3}
-  activeDistance: 20
-  attackRange: 5
-  delay: 1
-  duration: 1
+  activeDistance: 40
+  attackRange: 40
+  execTime: 0.3
+  delay: 2
+  duration: 0.3
   shotPoint: {fileID: 1421539345}
 --- !u!114 &1125118669
 MonoBehaviour:
@@ -2992,10 +2993,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 670448153}
-  activeDistance: 20
-  attackRange: 4
-  speed: 8
-  Life: 100
+  activeDistance: 40
+  attackRange: 9
+  speed: 5
+  Life: 1000
 --- !u!54 &1125118670
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3108,7 +3109,7 @@ Transform:
   m_GameObject: {fileID: 1125118666}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37.5, y: 2, z: 0}
+  m_LocalPosition: {x: -22.79, y: 8.02, z: -2.64}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
