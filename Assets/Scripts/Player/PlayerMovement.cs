@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionStay(Collision collision)
     {
-        float parteSuperior = collision.transform.position.y + (collision.transform.localScale.y/2);
+        float parteSuperior = collision.gameObject.GetComponent<Collider>().bounds.max.y;
 
         float playerFeet = GetComponent<Collider>().bounds.min.y;
 

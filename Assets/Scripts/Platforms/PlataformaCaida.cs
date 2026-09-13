@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
 public class PlataformaCaida : MonoBehaviour
 {
@@ -10,16 +12,15 @@ public class PlataformaCaida : MonoBehaviour
     private Rigidbody rb;
     private Vector3 posicionInicial;
     private Quaternion rotacionInicial;
-
+    private Renderer renderPlataforma;
     private bool activada = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        renderPlataforma = GetComponent<Renderer>();
         posicionInicial = transform.position;
         rotacionInicial = transform.rotation;
-
         chispas.Stop();
     }
 
@@ -38,11 +39,12 @@ public class PlataformaCaida : MonoBehaviour
                     chispas.Play();
 
                     Invoke("Caer", tiempoAntesDeCaer);
-
+                    StartCoroutine(Parpadeo(rb));
                     break;
                 }
             }
         }
+
     }
 
     void Caer()
@@ -58,7 +60,7 @@ public class PlataformaCaida : MonoBehaviour
     void Volver()
     {
         rb.useGravity = false;
-
+        
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
@@ -66,7 +68,21 @@ public class PlataformaCaida : MonoBehaviour
 
         transform.position = posicionInicial;
         transform.rotation = rotacionInicial;
-
+        StopAllCoroutines();
+        renderPlataforma.enabled = true;
         activada = false;
+    }
+
+    private IEnumerator Parpadeo(Rigidbody rb)
+    {
+        while (rb.useGravity = true)
+        {
+            yield return new WaitForSeconds(0.2f);
+
+            renderPlataforma.enabled = true;
+
+            yield return new WaitForSeconds(0.32f);
+            renderPlataforma.enabled = false;
+        }
     }
 }
