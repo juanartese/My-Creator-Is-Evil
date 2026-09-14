@@ -9,8 +9,11 @@ public class PlayerHealth : MonoBehaviour
 
     public Image barraVida;
 
+    public GameObject modeloVisual;
+
     private Coroutine flashActual;
     private Coroutine pulsoCritico;
+    private Coroutine titileoActual;
 
     private void Start()
     {
@@ -35,6 +38,13 @@ public class PlayerHealth : MonoBehaviour
         }
 
         flashActual = StartCoroutine(FlashDanio());
+
+        if (titileoActual != null)
+        {
+            StopCoroutine(titileoActual);
+        }
+
+        titileoActual = StartCoroutine(TitilarPlayer());
 
         print("Vida: " + vidaActual);
     }
@@ -97,6 +107,22 @@ public class PlayerHealth : MonoBehaviour
         ActualizarBarra();
 
         flashActual = null;
+    }
+
+    private IEnumerator TitilarPlayer()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            modeloVisual.SetActive(false);
+
+            yield return new WaitForSeconds(0.1f);
+
+            modeloVisual.SetActive(true);
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        titileoActual = null;
     }
 
     private IEnumerator PulsoCritico()
