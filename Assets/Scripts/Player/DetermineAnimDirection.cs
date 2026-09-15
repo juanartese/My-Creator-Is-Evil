@@ -21,7 +21,7 @@ public class DetermineAnimDirection : MonoBehaviour
     void Update()
     {
         var direct = (Vector3)moveInput.action.ReadValue<Vector2>();
-        playerAngle = transform.eulerAngles.y - 45 ;
+        playerAngle = transform.eulerAngles.y;
         if (playerAngle > 0 && playerAngle <90)
         {
             lookDirection = 1;
@@ -40,19 +40,19 @@ public class DetermineAnimDirection : MonoBehaviour
         }
         if (direct.y == 1)
         {
-            moveDirection = 1;
+            moveDirection = 4;
         }
         if (direct.y == -1)
         {
-            moveDirection = 3;
+            moveDirection = 2;
         }
         if (direct.x == 1)
         {
-            moveDirection = 2;
+            moveDirection = 3;
         }
         if (direct.x == -1)
         {
-            moveDirection = 4;
+            moveDirection = 1;
         }
         if (direct.x == 0 && direct.y ==0)
         {
@@ -70,7 +70,7 @@ public class DetermineAnimDirection : MonoBehaviour
         }
         if (animDirection == 3)
         {
-            animator.SetFloat("yAxis", 1);
+            animator.SetFloat("yAxis", -1);
         }
         if (animDirection == 2)
         {
@@ -78,7 +78,7 @@ public class DetermineAnimDirection : MonoBehaviour
         }
         if (animDirection == 1)
         {
-            animator.SetFloat("yAxis", -1);
+            animator.SetFloat("yAxis", 1);
         }
         if (animDirection < 1)
         {
