@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public Transform Player;
+    public GameObject Player;
     float distance;
     public float activeDistance;
     public float attackRange;
@@ -16,13 +16,14 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        distance = Vector3.Distance(transform.position, Player.position);
+        distance = Vector3.Distance(transform.position, Player.transform.position);
         if (distance < activeDistance && distance > attackRange)
         {
             transform.position += transform.forward * speed * Time.deltaTime;
         }
         if (Life <= 0)
         {
+            Player.GetComponent<PlayerMovement>().unlockDoubleJump = true;
             Destroy(gameObject);
         }
     }
