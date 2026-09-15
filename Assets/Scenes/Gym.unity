@@ -1077,6 +1077,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 660725314477617131, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
+      propertyPath: moveInput
+      value: 
+      objectReference: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 1150346852812688977, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1184,7 +1188,7 @@ PrefabInstance:
     - target: {fileID: 6780973037661059391, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: modeloVisual
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1435721093}
     - target: {fileID: 6899989390782426509, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3444,6 +3448,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1125118674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1435721093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7133729483101825268, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
+  m_PrefabInstance: {fileID: 670448152}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1454772270
 GameObject:
   m_ObjectHideFlags: 0

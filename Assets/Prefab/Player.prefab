@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 5856026490869920234}
   - component: {fileID: 2604402422136460676}
   - component: {fileID: 6780973037661059391}
+  - component: {fileID: 660725314477617131}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -276,7 +277,22 @@ MonoBehaviour:
   vidaMaxima: 100
   vidaActual: 0
   barraVida: {fileID: 0}
-  modeloVisual: {fileID: 0}
+  modeloVisual: {fileID: 7133729483101825268}
+--- !u!114 &660725314477617131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6899989390782426509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30e48f9829198ea488f8efe45011698e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookDirection: 0
+  moveDirection: 0
+  animDirection: 0
 --- !u!1001 &8052841831249925541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,6 +401,11 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: -0.1, z: 0}
+--- !u!1 &7133729483101825268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2ea93f9b1fde48d42a426393245f9f73, type: 3}
+  m_PrefabInstance: {fileID: 8052841831249925541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7515321987786584654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2ea93f9b1fde48d42a426393245f9f73, type: 3}
