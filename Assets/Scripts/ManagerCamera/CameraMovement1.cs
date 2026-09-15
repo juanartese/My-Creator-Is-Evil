@@ -25,11 +25,11 @@ public class CameraMovement1 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {  
-        if (Player.eulerAngles.y < 160&& Player.eulerAngles.y >0)
+        if (Player.eulerAngles.y < 155&& Player.eulerAngles.y >0)
         {
             camType = 1;
         }
-        if (Player.eulerAngles.y < 360 && Player.eulerAngles.y > 200)
+        if (Player.eulerAngles.y < 360 && Player.eulerAngles.y > 205)
         {
             camType = 0;
         }

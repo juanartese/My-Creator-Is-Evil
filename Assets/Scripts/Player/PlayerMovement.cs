@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
         float playerFeet = GetComponent<Collider>().bounds.min.y;
 
-        if (parteSuperior <= playerFeet + 0.1f)
+        if (parteSuperior <= playerFeet + 0.2f)
         {
             isGrounded = true;
             dJump = true;
