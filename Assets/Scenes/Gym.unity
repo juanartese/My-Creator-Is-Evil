@@ -2653,7 +2653,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 0592b7dac7e3042408a623332bd3d956, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3703,12 +3703,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 670448153}
-  speed: 2
-  ViewHeight: 12
-  yRotation: 30
-  xPosition: 7
-  rotationSpeed: 2
-  zOff: -12
+  speed: 3
+  ViewHeight: 15
+  yRotation: 35
+  xPosition: 5
+  rotationSpeed: 2.6
+  zOff: -15
 --- !u!114 &1454772272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5760,7 +5760,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 0592b7dac7e3042408a623332bd3d956, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
