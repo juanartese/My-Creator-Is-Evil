@@ -1,6 +1,4 @@
 using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class AreaAttack : MonoBehaviour
@@ -15,12 +13,14 @@ public class AreaAttack : MonoBehaviour
     public Material luzIndicadoraRoja;
     private PlayerHealth playerHealth;
     private bool hitOnce = true;
+    
     void Start()
     {
         transform.localScale = new Vector3(1, 1, 1) * startingSize;
         Destroy(gameObject, duration);
         renderAttack = GetComponent<Renderer>();
-        player = SceneAsset.FindAnyObjectByType<PlayerMovement>().gameObject;
+        
+        player = FindAnyObjectByType<PlayerMovement>().gameObject;
     }
 
     void Update()
@@ -28,6 +28,7 @@ public class AreaAttack : MonoBehaviour
         xDistance = Vector3.Distance(this.transform.position, player.transform.position);
         yDistance = (this.transform.position.y - player.transform.position.y);
         transform.localScale += new Vector3(1, 1, 1) * expansionSpeed * Time.deltaTime;
+        
         if (xDistance > transform.localScale.x / 2 - 0.5f && xDistance < transform.localScale.x / 2 + 0.5f && hitOnce)
         {
             playerHealth = player.GetComponent<PlayerHealth>();
@@ -39,9 +40,7 @@ public class AreaAttack : MonoBehaviour
                     playerHealth.RecibirDanio(25);
                     hitOnce = false;
                 }
-
             }
-          
         }
     }
 }
