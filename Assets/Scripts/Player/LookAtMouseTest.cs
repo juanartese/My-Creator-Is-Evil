@@ -12,23 +12,23 @@ public class LookAtMouseTest : MonoBehaviour
 
     void Start()
     {
-        // Cache the camera reference for performance optimization
         mainCamera = Camera.main;
     }
 
     void Update()
     {
+        //Stop reading mouse position and rotating if the game is paused
+        if (PauseMenu.GameIsPaused) return;
+
         RotateTowardsMouse();
     }
 
     private void RotateTowardsMouse()
     {
-        // 1. Create a ray from the camera passing through the mouse screen position
         playerPos = transform.position + Vector3.up * playerPosY;
         Plane horizontalPlane = new Plane(Vector3.up, playerPos);
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-        // Calculate where the ray intersects the infinite mathematical plane
         if (horizontalPlane.Raycast(ray, out float entry))
         {
             Vector3 intersectionPoint = ray.GetPoint(entry);

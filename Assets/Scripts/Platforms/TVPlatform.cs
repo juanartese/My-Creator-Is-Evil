@@ -28,7 +28,6 @@ public class TVPlatform : MonoBehaviour
     {
         if (isPlayerOnTop)
         {
-            // Keep resetting the stopwatch as long as the player is standing on it
             returnTimer = delayBeforeReturning;
             
             // It now travels to the exact X, Y, and Z coordinates of the targetPoint
