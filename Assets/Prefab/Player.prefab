@@ -169,18 +169,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23928eb5619dcb743957bc84fbb8eb4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 12
+  Speed: 14
   moveInput: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jumpInput: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   attackInput: {fileID: 3001919216989983466, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jumpForce: 40
-  dJumpForce: 20
+  dJumpForce: 30
   jPackForce: 0
   unlockDoubleJump: 0
   unlockJetpack: 0
   unlockHook: 0
   rb: {fileID: 3031541744876083212}
-  coyoteTime: 0.07
+  coyoteTime: 0.1
   bulletPrefab: {fileID: 5747996838830716436, guid: d9ffa678f05157341a0e0f0a16b3ad49, type: 3}
   firePoint: {fileID: 3393940920624628759}
   bulletForce: 200
@@ -203,8 +203,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.25, z: 1}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 1, y: 3.6, z: 1}
+  m_Center: {x: 0, y: 1.8, z: 0}
 --- !u!54 &3031541744876083212
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   rotationSpeed: 10
-  playerPosY: 0.5
+  playerPosY: 1.1
 --- !u!114 &6780973037661059391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,15 +358,15 @@ PrefabInstance:
       addedObject: {fileID: 7924387893224304881}
     - targetCorrespondingSourceObject: {fileID: 1082271958561512970, guid: 2ea93f9b1fde48d42a426393245f9f73, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6928672798814859010}
+      addedObject: {fileID: 5095085772601802288}
   m_SourcePrefab: {fileID: 100100000, guid: 2ea93f9b1fde48d42a426393245f9f73, type: 3}
 --- !u!1 &6972821708216601519 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1082271958561512970, guid: 2ea93f9b1fde48d42a426393245f9f73, type: 3}
   m_PrefabInstance: {fileID: 8052841831249925541}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &6928672798814859010
-CapsuleCollider:
+--- !u!65 &5095085772601802288
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -383,10 +383,8 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.8
-  m_Direction: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 1.8, z: 0.5}
   m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!1 &7133729483101825268 stripped
 GameObject:

@@ -67,13 +67,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (coyoteTimer <= coyoteTime)
         {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + jumpForce, rb.linearVelocity.z);
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
         }
         else 
         {
             if(unlockDoubleJump && dJump)
             {
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + dJumpForce, rb.linearVelocity.z);
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, dJumpForce, rb.linearVelocity.z);
                 dJump = false;
             }
         }
