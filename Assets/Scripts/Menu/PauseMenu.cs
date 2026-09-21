@@ -7,9 +7,14 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI; 
 
+    void Start()
+{
+    GameIsPaused = false;
+    Time.timeScale = 1f;
+}
+
     void Update()
     {
-        // Checks if a keyboard is connected, then checks if Escape was pressed this frame
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             if (GameIsPaused) Resume();

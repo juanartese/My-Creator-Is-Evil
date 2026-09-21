@@ -30,6 +30,11 @@ public class PlayerMovement : MonoBehaviour
         jumpInput.action.performed += OnJump;
         attackInput.action.performed += OnFire;
     }
+    private void OnDestroy()
+{
+    jumpInput.action.performed -= OnJump;
+    attackInput.action.performed -= OnFire;
+}
 
     void FixedUpdate()
     {

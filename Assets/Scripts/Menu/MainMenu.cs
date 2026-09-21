@@ -3,16 +3,26 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Ensure your target game level is added to the File > Build Settings
+    public GameObject creditsPanel;
+
     public void PlayGame()
     {
-        // Loads the next scene in the build queue
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void ShowCredits()
+    {
+        creditsPanel.SetActive(true);
+    }
+
+    public void HideCredits()
+    {
+        creditsPanel.SetActive(false);
     }
 
     public void QuitGame()
     {
-        Debug.Log("Game Exited!"); // This only prints in the Unity Editor
-        Application.Quit(); // This shuts down the final built game
+        Debug.Log("Quit Game");
+        Application.Quit();
     }
 }
