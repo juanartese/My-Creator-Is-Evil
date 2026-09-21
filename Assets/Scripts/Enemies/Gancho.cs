@@ -3,12 +3,19 @@ using UnityEngine;
 public class Gancho : MonoBehaviour
 {
     public float velocidad = 8f;
+    public int danio = 25;
+
+    // Tiempo maximo que el gancho puede perseguir al jugador
+    public float tiempoPersecucion = 2f;
 
     private Transform puntoGancho;
+    private Transform jugadorObjetivo;
+    private Transform jugadorAtrapado;
 
-    private Vector3 objetivo;
     private bool lanzado = false;
     private bool volviendo = false;
+
+    private float tiempoActualPersecucion = 0f;
 
     public bool EstaLanzado => lanzado;
 
@@ -21,13 +28,16 @@ public class Gancho : MonoBehaviour
     {
         transform.position = puntoGancho.position;
 
-        objetivo = jugador.position;
+        jugadorObjetivo = jugador;
+        jugadorAtrapado = null;
 
         lanzado = true;
         volviendo = false;
+
+        tiempoActualPersecucion = 0f;
     }
 
-    void Update()
+    private void Update()
     {
         if (!lanzado)
         {
@@ -35,19 +45,33 @@ public class Gancho : MonoBehaviour
             return;
         }
 
+        // =========================
+        // IDA - PERSIGUE AL PLAYER
+        // =========================
         if (!volviendo)
         {
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                objetivo,
-                velocidad * Time.deltaTime
-            );
+            if (jugadorObjetivo != null)
+            {
+                transform.position = Vector3.MoveTowards(
+                    transform.position,
+                    jugadorObjetivo.position,
+                    velocidad * Time.deltaTime
+                );
+            }
 
-            if (Vector3.Distance(transform.position, objetivo) < 0.1f)
+            tiempoActualPersecucion += Time.deltaTime;
+
+            // Si no logra atraparlo despues de cierto tiempo,
+            // abandona la persecucion y vuelve
+            if (tiempoActualPersecucion >= tiempoPersecucion)
             {
                 volviendo = true;
             }
         }
+
+        // =========================
+        // VUELTA AL ENEMIGO
+        // =========================
         else
         {
             transform.position = Vector3.MoveTowards(
@@ -56,13 +80,53 @@ public class Gancho : MonoBehaviour
                 velocidad * Time.deltaTime
             );
 
-            if (Vector3.Distance(transform.position, puntoGancho.position) < 0.1f)
+            // Si atrapo al jugador, lo arrastra
+            if (jugadorAtrapado != null)
+            {
+                jugadorAtrapado.position = transform.position;
+            }
+
+            // Llego al enemigo
+            if (Vector3.Distance(
+                transform.position,
+                puntoGancho.position
+            ) < 0.1f)
             {
                 transform.position = puntoGancho.position;
 
+                // Suelta al jugador
+                jugadorAtrapado = null;
+                jugadorObjetivo = null;
+
                 lanzado = false;
                 volviendo = false;
+
+                tiempoActualPersecucion = 0f;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") &&
+            lanzado &&
+            !volviendo)
+        {
+            jugadorAtrapado = other.transform;
+
+            // Hace dano una sola vez al impactar
+            PlayerHealth playerHealth =
+                other.GetComponent<PlayerHealth>();
+
+            if (playerHealth != null)
+            {
+                playerHealth.RecibirDanio(danio);
+            }
+
+            // Deja de perseguir y vuelve arrastrando al Player
+            volviendo = true;
+
+            print("PLAYER ATRAPADO - DANO: " + danio);
         }
     }
 }
