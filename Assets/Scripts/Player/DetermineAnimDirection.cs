@@ -11,17 +11,19 @@ public class DetermineAnimDirection : MonoBehaviour
     public float moveDirection;
     public float animDirection;
     public float playerAngle;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.GameIsPaused) return;
+
         var direct = (Vector3)moveInput.action.ReadValue<Vector2>();
         playerAngle = transform.eulerAngles.y;
+        
         if (playerAngle > 0 && playerAngle <90)
         {
             lookDirection = 1;
@@ -38,6 +40,7 @@ public class DetermineAnimDirection : MonoBehaviour
         {
             lookDirection = 4;
         }
+        
         if (direct.y == 1)
         {
             moveDirection = 4;
@@ -64,6 +67,7 @@ public class DetermineAnimDirection : MonoBehaviour
         {
             animDirection = animDirection - 4;
         }
+        
         if (animDirection == 4)
         {
             animator.SetFloat("xAxis", 1);

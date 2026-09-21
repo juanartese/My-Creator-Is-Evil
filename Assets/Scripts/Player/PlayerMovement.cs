@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float Speed;
     public InputActionReference moveInput;
     public InputActionReference jumpInput;
@@ -22,19 +21,28 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteTimer = 0f;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
-    
     [SerializeField] private float bulletForce = 200f;
+
     void Start()
     {
         isGrounded = true;
+        
+        jumpInput.action.performed += OnJump;
+        attackInput.action.performed += OnFire;
     }
+    private void OnDestroy()
+{
+    jumpInput.action.performed -= OnJump;
+    attackInput.action.performed -= OnFire;
+}
 
     void FixedUpdate()
     {
+        if (PauseMenu.GameIsPaused) return;
+
         var moveDirection = (Vector3)moveInput.action.ReadValue<Vector2>() * Speed;
         rb.linearVelocity = new Vector3 (moveDirection.x, rb.linearVelocity.y, moveDirection.y);  
-        jumpInput.action.performed+= OnJump;
-        attackInput.action.performed += OnFire;
+        
         if (isGrounded)
         {
             coyoteTimer = 0f;
@@ -43,12 +51,11 @@ public class PlayerMovement : MonoBehaviour
         {
             coyoteTimer += Time.deltaTime;
         }
-        
     }
+
     private void OnCollisionStay(Collision collision)
     {
         float parteSuperior = collision.gameObject.GetComponent<Collider>().bounds.max.y;
-
         float playerFeet = GetComponent<Collider>().bounds.min.y;
 
         if (parteSuperior <= playerFeet + 0.2f)
@@ -57,35 +64,39 @@ public class PlayerMovement : MonoBehaviour
             dJump = true;
             coyoteTimer = 0f;
         }
-            
     }
+
     private void OnCollisionExit()
     {
-          isGrounded = false;
+         isGrounded = false;
     }
+
     private void OnJump(InputAction.CallbackContext context)
     {
+        if (PauseMenu.GameIsPaused) return;
+
         if (coyoteTimer <= coyoteTime)
         {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + jumpForce, rb.linearVelocity.z);
         }
         else 
         {
             if(unlockDoubleJump && dJump)
             {
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x, dJumpForce, rb.linearVelocity.z);
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + dJumpForce, rb.linearVelocity.z);
                 dJump = false;
             }
         }
         isGrounded = false;
     }
+
     public void OnFire(InputAction.CallbackContext context)
     {
-        // Only fire when the button is first pressed down
+        if (PauseMenu.GameIsPaused) return;
+
         if (context.performed)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         }
     }
-
 }
