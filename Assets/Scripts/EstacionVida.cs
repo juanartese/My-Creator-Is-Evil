@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EstacionVida : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class EstacionVida : MonoBehaviour
     public Material materialVerde;
     public Material materialRojo;
 
-    public GameObject rayoCarga;
+    public Image llaveCarga;
 
     private float tiempoActual = 0f;
     private bool jugadorEnEstacion = false;
@@ -19,8 +20,15 @@ public class EstacionVida : MonoBehaviour
 
     private void Start()
     {
-        luzEstado.material = materialVerde;
-        rayoCarga.SetActive(false);
+        if (luzEstado != null && materialVerde != null)
+        {
+            luzEstado.material = materialVerde;
+        }
+
+        if (llaveCarga != null)
+        {
+            llaveCarga.enabled = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,13 +40,15 @@ public class EstacionVida : MonoBehaviour
 
             playerHealth = other.GetComponent<PlayerHealth>();
 
-            if (playerHealth != null && !estacionUsada &&
+            if (playerHealth != null &&
+                !estacionUsada &&
                 playerHealth.vidaActual < playerHealth.vidaMaxima)
             {
-                rayoCarga.SetActive(true);
+                if (llaveCarga != null)
+                {
+                    llaveCarga.enabled = true;
+                }
             }
-
-            print("JUGADOR ENTRO A LA ESTACION");
         }
     }
 
@@ -50,9 +60,10 @@ public class EstacionVida : MonoBehaviour
             tiempoActual = 0f;
             playerHealth = null;
 
-            rayoCarga.SetActive(false);
-
-            print("JUGADOR SALIO DE LA ESTACION");
+            if (llaveCarga != null)
+            {
+                llaveCarga.enabled = false;
+            }
         }
     }
 
@@ -62,7 +73,10 @@ public class EstacionVida : MonoBehaviour
         {
             if (playerHealth.vidaActual < playerHealth.vidaMaxima)
             {
-                rayoCarga.SetActive(true);
+                if (llaveCarga != null)
+                {
+                    llaveCarga.enabled = true;
+                }
 
                 tiempoActual += Time.deltaTime;
 
@@ -75,16 +89,17 @@ public class EstacionVida : MonoBehaviour
                     {
                         estacionUsada = true;
 
-                        rayoCarga.SetActive(false);
-                        luzEstado.material = materialRojo;
+                        if (llaveCarga != null)
+                        {
+                            llaveCarga.enabled = false;
+                        }
 
-                        print("ESTACION AGOTADA");
+                        if (luzEstado != null && materialRojo != null)
+                        {
+                            luzEstado.material = materialRojo;
+                        }
                     }
                 }
-            }
-            else
-            {
-                rayoCarga.SetActive(false);
             }
         }
     }
