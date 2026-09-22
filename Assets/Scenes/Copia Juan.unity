@@ -2672,7 +2672,7 @@ Transform:
   m_GameObject: {fileID: 905272075}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.42, y: 0.01, z: 0}
+  m_LocalPosition: {x: 4.13, y: 0.01, z: 0}
   m_LocalScale: {x: 4.4348674, y: 0.7977513, z: 0.7977513}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2695,7 +2695,7 @@ MonoBehaviour:
   luzEstado: {fileID: 822738850}
   materialVerde: {fileID: 2100000, guid: 97cb2401dc0e4fb4f9c27fc7542eb01b, type: 2}
   materialRojo: {fileID: 2100000, guid: b97c5ed7b413e3f4581ccac455ed9af5, type: 2}
-  rayoCarga: {fileID: 1053055263}
+  llaveCarga: {fileID: 0}
 --- !u!65 &905272078
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4957,7 +4957,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 70, y: 1.6, z: 10}
-  m_LocalScale: {x: 0.12490487, y: 0.85516137, z: 0.85516137}
+  m_LocalScale: {x: 0.25, y: 1.7, z: 1.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 905272076}
