@@ -7,33 +7,18 @@ public class PlayerHealth : MonoBehaviour
     public int vidaMaxima = 100;
     public int vidaActual;
 
-    public Image vida1;
-    public Image vida2;
-    public Image vida3;
-    public Image vida4;
-
-    public Image llaveCarga;
+    public Image barraVida;
 
     public GameObject modeloVisual;
 
+    private Coroutine flashActual;
     private Coroutine pulsoCritico;
     private Coroutine titileoActual;
-    private Coroutine animacionLlave;
-
-    private Color verde = Color.green;
-    private Color amarillo = Color.yellow;
-    private Color rojo = Color.red;
-    private Color apagado = new Color(0.12f, 0.14f, 0.16f, 1f);
 
     private void Start()
     {
         vidaActual = vidaMaxima;
         ActualizarBarra();
-
-        if (llaveCarga != null)
-        {
-            llaveCarga.enabled = false;
-        }
     }
 
     public void RecibirDanio(int cantidad)
@@ -46,6 +31,13 @@ public class PlayerHealth : MonoBehaviour
         }
 
         ActualizarBarra();
+
+        if (flashActual != null)
+        {
+            StopCoroutine(flashActual);
+        }
+
+        flashActual = StartCoroutine(FlashDanio());
 
         if (titileoActual != null)
         {
@@ -68,56 +60,32 @@ public class PlayerHealth : MonoBehaviour
 
         ActualizarBarra();
 
-        if (llaveCarga != null)
-        {
-            if (animacionLlave != null)
-            {
-                StopCoroutine(animacionLlave);
-            }
-
-            animacionLlave = StartCoroutine(MostrarLlave());
-        }
-
         print("Vida: " + vidaActual);
-    }
-
-    private IEnumerator MostrarLlave()
-    {
-        llaveCarga.enabled = true;
-
-        yield return new WaitForSeconds(0.8f);
-
-        llaveCarga.enabled = false;
-
-        animacionLlave = null;
     }
 
     private void ActualizarBarra()
     {
-        vida1.color = apagado;
-        vida2.color = apagado;
-        vida3.color = apagado;
-        vida4.color = apagado;
+        float porcentajeActual = (float)vidaActual / vidaMaxima;
+
+        float paso = 0.25f;
+        int nivel = Mathf.CeilToInt(porcentajeActual / paso);
+        float valorAjustado = nivel * paso;
+
+        barraVida.fillAmount = Mathf.Clamp01(valorAjustado);
 
         if (vidaActual >= 75)
         {
-            if (vidaActual >= 25) vida1.color = verde;
-            if (vidaActual >= 50) vida2.color = verde;
-            if (vidaActual >= 75) vida3.color = verde;
-            if (vidaActual >= 100) vida4.color = verde;
-
+            barraVida.color = Color.green;
             DetenerPulsoCritico();
         }
         else if (vidaActual >= 50)
         {
-            vida1.color = amarillo;
-            vida2.color = amarillo;
-
+            barraVida.color = Color.yellow;
             DetenerPulsoCritico();
         }
         else if (vidaActual > 0)
         {
-            vida1.color = rojo;
+            barraVida.color = Color.red;
 
             if (pulsoCritico == null)
             {
@@ -130,14 +98,27 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    private IEnumerator FlashDanio()
+    {
+        barraVida.color = Color.red;
+
+        yield return new WaitForSeconds(0.2f);
+
+        ActualizarBarra();
+
+        flashActual = null;
+    }
+
     private IEnumerator TitilarPlayer()
     {
         for (int i = 0; i < 3; i++)
         {
             modeloVisual.SetActive(false);
+
             yield return new WaitForSeconds(0.1f);
 
             modeloVisual.SetActive(true);
+
             yield return new WaitForSeconds(0.1f);
         }
 
@@ -148,15 +129,15 @@ public class PlayerHealth : MonoBehaviour
     {
         while (vidaActual > 0 && vidaActual < 50)
         {
-            Color color = vida1.color;
+            Color color = barraVida.color;
 
             color.a = 0.35f;
-            vida1.color = color;
+            barraVida.color = color;
 
             yield return new WaitForSeconds(0.35f);
 
             color.a = 1f;
-            vida1.color = color;
+            barraVida.color = color;
 
             yield return new WaitForSeconds(0.35f);
         }
@@ -172,11 +153,8 @@ public class PlayerHealth : MonoBehaviour
             pulsoCritico = null;
         }
 
-        if (vida1 != null)
-        {
-            Color color = vida1.color;
-            color.a = 1f;
-            vida1.color = color;
-        }
+        Color color = barraVida.color;
+        color.a = 1f;
+        barraVida.color = color;
     }
 }
