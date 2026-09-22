@@ -7,6 +7,7 @@ public class CameraMovement1 : MonoBehaviour
     public float speed;
     float zoff;
     public float ViewHeight;
+    public float ViewAngle;
     public float yRotation;
     public float xPosition;
     public float rotationSpeed;
@@ -35,12 +36,12 @@ public class CameraMovement1 : MonoBehaviour
         }
         if (camType == 1)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(30, yRotation, 0), rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(ViewAngle, yRotation, 0), rotationSpeed * Time.deltaTime);
             newPosition = Player.position + new Vector3(-xPosition, ViewHeight, zOff);
         }
         if (camType == 0)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(30, -yRotation, 0), rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(ViewAngle, -yRotation, 0), rotationSpeed * Time.deltaTime);
             newPosition = Player.position + new Vector3(+xPosition, ViewHeight, zOff);
         }
         newPosition = Vector3.Lerp(transform.position, newPosition, speed * Time.deltaTime);
