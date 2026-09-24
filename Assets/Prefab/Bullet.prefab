@@ -118,6 +118,7 @@ MonoBehaviour:
   speed: 30
   duration: 0.8
   damage: 20
+  explosionPrefab: {fileID: 4077093323780996827, guid: 448b5ec2c23123a42b6a811ab51ea31d, type: 3}
 --- !u!65 &-4968695492657896927
 BoxCollider:
   m_ObjectHideFlags: 0
