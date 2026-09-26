@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class JumperMovement : MonoBehaviour
+public class AreaMovement : MonoBehaviour
 {
     public GameObject Player;
     float distance;
@@ -23,6 +23,7 @@ public class JumperMovement : MonoBehaviour
         }
         if (Life <= 0)
         {
+
             Player.GetComponent<PlayerMovement>().unlockDoubleJump = true;
             Destroy(gameObject);
         }
