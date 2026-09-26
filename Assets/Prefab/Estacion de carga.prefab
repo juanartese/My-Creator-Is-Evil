@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 5494677383871166742}
   - component: {fileID: 6854371601713622332}
   - component: {fileID: 1923199379722043948}
+  - component: {fileID: 1757302105452225671}
   m_Layer: 0
   m_Name: ZonaCarga
   m_TagString: Untagged
@@ -334,6 +335,20 @@ MonoBehaviour:
   materialVerde: {fileID: 2100000, guid: 97cb2401dc0e4fb4f9c27fc7542eb01b, type: 2}
   materialRojo: {fileID: 2100000, guid: b97c5ed7b413e3f4581ccac455ed9af5, type: 2}
   llaveCarga: {fileID: 0}
+--- !u!114 &1757302105452225671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7766527782973439012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1100f12fcb70aa749953bfb9b0929248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  llaveCarga: {fileID: 0}
+  sonidoTaladro: {fileID: 0}
 --- !u!1001 &4409293103990126889
 PrefabInstance:
   m_ObjectHideFlags: 0
