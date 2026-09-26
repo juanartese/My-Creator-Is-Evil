@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
     public float speed;
     public float duration;
     public int damage;
+    public GameObject explosionPrefab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,6 +34,13 @@ public class Bullet : MonoBehaviour
         {  }
         else
         {
+            GameObject fx = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            ParticleSystem ps = fx.GetComponent<ParticleSystem>();
+            if (ps != null)
+            {
+                ps.Play();
+                Destroy(fx, ps.main.duration + ps.main.startLifetime.constantMax);
+            }
             Destroy(gameObject);
         }
     }
