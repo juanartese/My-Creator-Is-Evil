@@ -8,6 +8,8 @@ public class PisoElectrico : MonoBehaviour
 
     private PlayerHealth playerHealth;
 
+    public ParticleSystem chispasElectricas;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -27,6 +29,7 @@ public class PisoElectrico : MonoBehaviour
         {
             jugadorEnPiso = false;
             tiempoActual = 0f;
+            playerHealth = null;
 
             Debug.Log("SALIO DEL PISO ELECTRICO");
         }
@@ -40,11 +43,17 @@ public class PisoElectrico : MonoBehaviour
 
             if (tiempoActual >= tiempoEntreDanio)
             {
-                Debug.Log("Jugador recibe daño electrico");
+                Debug.Log("JUGADOR RECIBE DANO ELECTRICO");
 
                 if (playerHealth != null)
                 {
                     playerHealth.RecibirDanio(25);
+
+                    if (chispasElectricas != null)
+                    {
+                        Debug.Log("CHISPAS ACTIVADAS");
+                        chispasElectricas.Play();
+                    }
                 }
 
                 tiempoActual = 0f;
