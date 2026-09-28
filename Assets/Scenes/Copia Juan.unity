@@ -532,6 +532,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507048786844120074, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1975649947}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -106.65828
@@ -572,6 +576,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5988799071175351163, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 670448153}
     - target: {fileID: 6220519356993538002, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_Name
       value: Minion (9)
@@ -1098,6 +1106,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507048786844120074, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1975649947}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -98.832306
@@ -1138,6 +1150,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5988799071175351163, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 670448153}
     - target: {fileID: 6220519356993538002, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_Name
       value: Minion (17)
@@ -1155,6 +1171,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507048786844120074, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1975649947}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -158.54951
@@ -1195,6 +1215,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5988799071175351163, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 670448153}
     - target: {fileID: 6220519356993538002, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_Name
       value: Minion (13)
@@ -2523,6 +2547,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507048786844120074, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1975649947}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -112.19393
@@ -2563,6 +2591,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5988799071175351163, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 670448153}
     - target: {fileID: 6220519356993538002, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_Name
       value: Minion (15)
@@ -2654,11 +2686,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3166730358997257229, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: unlockJetpack
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3166730358997257229, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: unlockDoubleJump
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6780973037661059391, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: vida1
@@ -2842,6 +2874,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507048786844120074, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1975649947}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -152.13585
@@ -2882,6 +2918,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5988799071175351163, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 670448153}
     - target: {fileID: 6220519356993538002, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_Name
       value: Minion (12)
@@ -4323,6 +4363,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507048786844120074, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1975649947}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -97.09991
@@ -4363,6 +4407,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5988799071175351163, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 670448153}
     - target: {fileID: 6220519356993538002, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_Name
       value: Minion (18)
@@ -4455,6 +4503,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507048786844120074, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1975649947}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -130.27982
@@ -4495,6 +4547,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5988799071175351163, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 670448153}
     - target: {fileID: 6220519356993538002, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_Name
       value: Minion (10)
@@ -6356,6 +6412,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507048786844120074, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1975649947}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -149.3086
@@ -6396,6 +6456,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5988799071175351163, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 670448153}
     - target: {fileID: 6220519356993538002, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_Name
       value: Minion (8)
@@ -6610,6 +6674,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507048786844120074, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1975649947}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -141.11452
@@ -6650,6 +6718,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5988799071175351163, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 670448153}
     - target: {fileID: 6220519356993538002, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_Name
       value: Minion (14)
@@ -7575,6 +7647,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507048786844120074, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1975649947}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -92.25
@@ -7615,6 +7691,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5988799071175351163, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 670448153}
     - target: {fileID: 6220519356993538002, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_Name
       value: Minion (19)
@@ -7905,6 +7985,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507048786844120074, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1975649947}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -118.14995
@@ -7945,6 +8029,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5988799071175351163, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 670448153}
     - target: {fileID: 6220519356993538002, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_Name
       value: Minion (16)
@@ -9757,6 +9845,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507048786844120074, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1975649947}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.x
       value: 121.37151
@@ -9797,6 +9889,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5988799071175351163, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 670448153}
     - target: {fileID: 6220519356993538002, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_Name
       value: Minion (7)
@@ -10919,6 +11015,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507048786844120074, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1975649947}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -78.4144
@@ -10959,6 +11059,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5988799071175351163, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 670448153}
     - target: {fileID: 6220519356993538002, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_Name
       value: Minion (20)
@@ -11161,6 +11265,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507048786844120074, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1975649947}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -140.5758
@@ -11201,6 +11309,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5988799071175351163, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 670448153}
     - target: {fileID: 6220519356993538002, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_Name
       value: Minion (11)
