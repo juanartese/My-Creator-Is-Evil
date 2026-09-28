@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -11,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public float dJumpForce;
     public float jPackForce;
+    public float jPackDuration;
+    public float jPackUse;
     private bool isGrounded;
     public bool unlockDoubleJump;
     public bool unlockJetpack;
@@ -19,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
     public float coyoteTime = 0.1f;
     private float coyoteTimer = 0f;
+    public bool usingJetpack = false;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float bulletForce = 200f;
@@ -46,10 +50,23 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             coyoteTimer = 0f;
+            if (jPackUse < jPackDuration)
+            {
+                jPackUse = Mathf.Lerp(jPackUse,jPackDuration,0.5f);
+            }
         }
         else
         {
             coyoteTimer += Time.deltaTime;
+        }
+        if (usingJetpack == true)
+        {
+            rb.AddForce(Vector3.up * jPackForce,ForceMode.Force);
+            jPackUse -= Time.deltaTime;
+        }
+        if (jPackUse <= 0)
+        {
+            usingJetpack = false;
         }
     }
 
@@ -74,7 +91,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnJump(InputAction.CallbackContext context)
     {
         if (PauseMenu.GameIsPaused) return;
-
         if (coyoteTimer <= coyoteTime)
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
@@ -85,6 +101,17 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.linearVelocity = new Vector3(rb.linearVelocity.x, dJumpForce, rb.linearVelocity.z);
                 dJump = false;
+            }
+            else
+            {
+                if (isGrounded == false && dJump == false && unlockJetpack && usingJetpack == false)
+                {
+                    usingJetpack = true;
+                }
+                else
+                {
+                    usingJetpack = false;
+                }
             }
         }
         isGrounded = false;
