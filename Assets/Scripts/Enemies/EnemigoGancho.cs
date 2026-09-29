@@ -18,8 +18,10 @@ public class EnemigoGancho : MonoBehaviour
     public Material materialRojo;
 
     private Transform jugador;
+    public GameObject Player;
     private bool jugadorDetectado = false;
     private float tiempoActual = 0f;
+    public float Life;
 
     // Lugar donde estaba el enemigo al comenzar
     private Vector3 posicionInicial;
@@ -58,6 +60,12 @@ public class EnemigoGancho : MonoBehaviour
         {
             // Si perdio al jugador, vuelve a su lugar
             VolverAPosicionInicial();
+        }
+        if (Life <= 0)
+        {
+
+            Player.GetComponent<PlayerMovement>().unlockJetpack = true;
+            Destroy(gameObject);
         }
     }
 
