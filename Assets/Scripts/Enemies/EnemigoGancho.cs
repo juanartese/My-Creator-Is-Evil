@@ -19,6 +19,7 @@ public class EnemigoGancho : MonoBehaviour
 
     private Transform jugador;
     public GameObject Player;
+    public GameObject jetPack;
     private bool jugadorDetectado = false;
     private float tiempoActual = 0f;
     public float Life;
@@ -63,8 +64,9 @@ public class EnemigoGancho : MonoBehaviour
         }
         if (Life <= 0)
         {
-
+            if (Player.GetComponent<PlayerMovement>().unlockJetpack == false)
             Player.GetComponent<PlayerMovement>().unlockJetpack = true;
+            jetPack.active = true;
             Destroy(gameObject);
         }
     }

@@ -3586,6 +3586,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &763864808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4756287348403807197, guid: 113547ba383d5fd45a29d732124995fa, type: 3}
+  m_PrefabInstance: {fileID: 2034265500}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &763864809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5281150645963553127, guid: 113547ba383d5fd45a29d732124995fa, type: 3}
@@ -7523,6 +7528,7 @@ MonoBehaviour:
   materialVerde: {fileID: 2100000, guid: 0b35d60846e70564ab699d68810d4303, type: 2}
   materialRojo: {fileID: 2100000, guid: 0592b7dac7e3042408a623332bd3d956, type: 2}
   Player: {fileID: 1975649947}
+  jetPack: {fileID: 763864808}
   Life: 100
 --- !u!135 &1624374369
 SphereCollider:
@@ -10796,6 +10802,7 @@ MonoBehaviour:
   materialVerde: {fileID: 2100000, guid: 0b35d60846e70564ab699d68810d4303, type: 2}
   materialRojo: {fileID: 2100000, guid: 0592b7dac7e3042408a623332bd3d956, type: 2}
   Player: {fileID: 1975649947}
+  jetPack: {fileID: 763864808}
   Life: 100
 --- !u!135 &2027380409
 SphereCollider:
@@ -10922,6 +10929,10 @@ PrefabInstance:
     - target: {fileID: 4756287348403807197, guid: 113547ba383d5fd45a29d732124995fa, type: 3}
       propertyPath: m_Name
       value: Jetpack1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756287348403807197, guid: 113547ba383d5fd45a29d732124995fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5281150645963553127, guid: 113547ba383d5fd45a29d732124995fa, type: 3}
       propertyPath: m_LocalScale.x
