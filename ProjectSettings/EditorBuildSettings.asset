@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: fc059b071ebb7b648a15a0a45a37bab0
   - enabled: 1
+    path: Assets/Scenes/New Level.unity
+    guid: 5c5fb9f6ad8e2284b8767e22c2381aa8
+  - enabled: 1
     path: Assets/Scenes/Copia Juan.unity
     guid: 53701eecd1c3f254a8bd2827edb2cd6c
   m_configObjects:
