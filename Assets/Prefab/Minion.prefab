@@ -284,9 +284,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 6899989390782426509, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
-  activeDistance: 15
+  activeDistance: 25
   attackRange: 2.5
-  speed: 6
+  speed: 8
   Life: 100
 --- !u!114 &5988799071175351163
 MonoBehaviour:
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 2891074997309094772, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
-  activeDistance: 20
+  activeDistance: 27
   turnSpeed: 8
 --- !u!136 &52530395867106980
 CapsuleCollider:

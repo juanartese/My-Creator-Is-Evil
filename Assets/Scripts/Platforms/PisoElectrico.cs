@@ -15,7 +15,7 @@ public class PisoElectrico : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jugadorEnPiso = true;
-            tiempoActual = 0f;
+            tiempoActual = 1f;
 
             playerHealth = other.GetComponent<PlayerHealth>();
 
