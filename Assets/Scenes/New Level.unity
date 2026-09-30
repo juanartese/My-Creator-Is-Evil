@@ -12008,6 +12008,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 269575934409835559, guid: 0a65fb80de7975542b39a0950b215065, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 269575934409835559, guid: 0a65fb80de7975542b39a0950b215065, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663117602923861623, guid: 0a65fb80de7975542b39a0950b215065, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1757302105452225671, guid: 0a65fb80de7975542b39a0950b215065, type: 3}
       propertyPath: llaveCarga
       value: 
@@ -28229,6 +28241,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 269575934409835559, guid: 0a65fb80de7975542b39a0950b215065, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 269575934409835559, guid: 0a65fb80de7975542b39a0950b215065, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663117602923861623, guid: 0a65fb80de7975542b39a0950b215065, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1757302105452225671, guid: 0a65fb80de7975542b39a0950b215065, type: 3}
       propertyPath: llaveCarga
       value: 
