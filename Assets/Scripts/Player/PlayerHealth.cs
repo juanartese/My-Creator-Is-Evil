@@ -38,11 +38,19 @@ public class PlayerHealth : MonoBehaviour
 
     public void RecibirDanio(int cantidad)
     {
+        if (vidaActual <= 0) return; 
+
         vidaActual -= cantidad;
 
-        if (vidaActual < 0)
+        if (vidaActual <= 0)
         {
-            vidaActual = 0;
+            vidaActual = 0; // Keep health at 0
+            
+            // TRIGGER THE GAME OVER SCREEN HERE
+            if (LevelManager.instance != null)
+            {
+                LevelManager.instance.GameOver();
+            }
         }
 
         ActualizarBarra();

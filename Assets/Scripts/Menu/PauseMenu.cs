@@ -13,8 +13,17 @@ public class PauseMenu : MonoBehaviour
     Time.timeScale = 1f;
 }
 
-    void Update()
+void Update()
     {
+
+        if (LevelManager.instance != null)
+        {
+            if (LevelManager.instance.gameOverUI.activeSelf || LevelManager.instance.victoryUI.activeSelf)
+            {
+                return;
+            }
+        }
+
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             if (GameIsPaused) Resume();
