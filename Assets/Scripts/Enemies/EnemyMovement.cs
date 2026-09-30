@@ -25,8 +25,6 @@ public class EnemyMovement : MonoBehaviour
         }
         if (Life <= 0)
         {
-
-            Player.GetComponent<PlayerMovement>().unlockDoubleJump = true;
             Destroy(gameObject);
         }
     }

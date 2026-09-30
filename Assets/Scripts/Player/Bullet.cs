@@ -21,14 +21,20 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        var enemy = collision.gameObject.GetComponent<EnemyMovement>();
-        if (enemy)
+        var enemy1 = collision.gameObject.GetComponent<EnemyMovement>();
+        var enemy2 = collision.gameObject.GetComponent<AreaMovement>();
+        var enemy3 = collision.gameObject.GetComponent<EnemigoGancho>();
+        if (enemy2 != null)
         {
-            if (enemy.Life > 0)
-            {
-                enemy.Life = enemy.Life - damage;
-                Debug.Log("Golpeaste al enemigo, le queda " + enemy.Life + " de vida");
-            }
+            enemy2.Life = enemy2.Life - damage;
+        }
+        if (enemy1 != null)
+        {
+            enemy1.Life = enemy1.Life - damage;
+        }
+        if (enemy3 != null)
+        {
+            enemy3.Life = enemy3.Life - damage;
         }
         if (collision.gameObject.CompareTag("Player"))
         {  }
