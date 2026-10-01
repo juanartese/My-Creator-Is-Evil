@@ -3,7 +3,7 @@ using UnityEngine;
 public class PisoElectrico : MonoBehaviour
 {
     private float tiempoEntreDanio = 1f;
-    private float tiempoActual = 0f;
+    private float tiempoActual = 1f;
     private bool jugadorEnPiso = false;
 
     private PlayerHealth playerHealth;
@@ -28,7 +28,7 @@ public class PisoElectrico : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jugadorEnPiso = false;
-            tiempoActual = 0f;
+            tiempoActual = 1f;
             playerHealth = null;
 
             Debug.Log("SALIO DEL PISO ELECTRICO");
