@@ -1,0 +1,7 @@
+newmtl AceroOscuro
+Ka 0.12 0.12 0.13
+Kd 0.44 0.47 0.51
+Ks 0.75 0.75 0.75
+Ns 90
+d 1.0
+illum 2
