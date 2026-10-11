@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class BotonPuerta : MonoBehaviour
@@ -33,13 +34,7 @@ public class BotonPuerta : MonoBehaviour
         {
             objetosEncima++;
 
-            renderBoton.material = materialVerde;
-            transform.position = posicionInicial + new Vector3(0, -0.05f, 0);
-
-            luzPuerta.color = Color.green;
-            luzIndicadora.material = luzIndicadoraVerde;
-
-            puerta.AbrirPuerta();
+            ActualizarBoton();
 
             print("Boton activado");
         }
@@ -51,20 +46,48 @@ public class BotonPuerta : MonoBehaviour
         {
             objetosEncima--;
 
-            if (objetosEncima <= 0)
+            if (objetosEncima < 0)
             {
                 objetosEncima = 0;
-
-                renderBoton.material = materialRojo;
-                transform.position = posicionInicial;
-
-                luzPuerta.color = Color.red;
-                luzIndicadora.material = luzIndicadoraRoja;
-
-                puerta.CerrarPuerta();
-
-                print("Boton desactivado");
             }
+
+            ActualizarBoton();
+
+            print("Boton desactivado");
+        }
+    }
+
+    public void TNTExploto()
+    {
+        if (objetosEncima > 0)
+        {
+            objetosEncima--;
+        }
+
+        ActualizarBoton();
+    }
+
+    void ActualizarBoton()
+    {
+        if (objetosEncima > 0)
+        {
+            renderBoton.material = materialVerde;
+            transform.position = posicionInicial + new Vector3(0, -0.05f, 0);
+
+            luzPuerta.color = Color.green;
+            luzIndicadora.material = luzIndicadoraVerde;
+
+            puerta.AbrirPuerta();
+        }
+        else
+        {
+            renderBoton.material = materialRojo;
+            transform.position = posicionInicial;
+
+            luzPuerta.color = Color.red;
+            luzIndicadora.material = luzIndicadoraRoja;
+
+            puerta.CerrarPuerta();
         }
     }
 }
