@@ -22,7 +22,7 @@ public class DetermineAnimDirection : MonoBehaviour
         if (PauseMenu.GameIsPaused) return;
 
         var direct = (Vector3)moveInput.action.ReadValue<Vector2>();
-        playerAngle = transform.eulerAngles.y;
+        playerAngle = transform.eulerAngles.y + 45f;
         
         if (playerAngle > 0 && playerAngle <90)
         {
