@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class PlataformaIntermitente : MonoBehaviour
@@ -12,6 +13,10 @@ public class PlataformaIntermitente : MonoBehaviour
     public float tiempoAmarillo = 1f;
     public float tiempoRojo = 0.5f;
 
+    // Referencias para el nuevo modelo
+    public Renderer[] renderersLED;
+    public GameObject modeloPlataforma;
+
     private Renderer renderPlataforma;
     private Collider colliderPlataforma;
 
@@ -20,40 +25,87 @@ public class PlataformaIntermitente : MonoBehaviour
         renderPlataforma = GetComponent<Renderer>();
         colliderPlataforma = GetComponent<Collider>();
 
-        renderPlataforma.material = materialVerde;
+        CambiarMaterial(materialVerde);
 
-        Invoke("CambiarAmarillo", tiempoVisible - tiempoAmarillo);
-        Invoke("CambiarRojo", tiempoVisible - tiempoRojo);
-        Invoke("Desaparecer", tiempoVisible);
+        Invoke(nameof(CambiarAmarillo),
+            Mathf.Max(0f, tiempoVisible - tiempoAmarillo));
+
+        Invoke(nameof(CambiarRojo),
+            Mathf.Max(0f, tiempoVisible - tiempoRojo));
+
+        Invoke(nameof(Desaparecer), tiempoVisible);
+    }
+
+    void CambiarMaterial(Material material)
+    {
+        // Nuevo modelo: cambiar solamente los LEDs
+        if (renderersLED != null && renderersLED.Length > 0)
+        {
+            foreach (Renderer led in renderersLED)
+            {
+                if (led != null)
+                    led.material = material;
+            }
+        }
+        // Plataformas anteriores: cambiar el cubo completo
+        else if (renderPlataforma != null)
+        {
+            renderPlataforma.material = material;
+        }
     }
 
     void CambiarAmarillo()
     {
-        renderPlataforma.material = materialAmarillo;
+        CambiarMaterial(materialAmarillo);
     }
 
     void CambiarRojo()
     {
-        renderPlataforma.material = materialRojo;
+        CambiarMaterial(materialRojo);
     }
 
     void Desaparecer()
     {
-        renderPlataforma.enabled = false;
-        colliderPlataforma.enabled = false;
+        // Ocultar el nuevo modelo completo
+        if (modeloPlataforma != null)
+        {
+            modeloPlataforma.SetActive(false);
+        }
+        // Compatibilidad con las plataformas anteriores
+        else if (renderPlataforma != null)
+        {
+            renderPlataforma.enabled = false;
+        }
 
-        Invoke("Aparecer", tiempoInvisible);
+        if (colliderPlataforma != null)
+            colliderPlataforma.enabled = false;
+
+        Invoke(nameof(Aparecer), tiempoInvisible);
     }
 
     void Aparecer()
     {
-        renderPlataforma.enabled = true;
-        colliderPlataforma.enabled = true;
+        // Mostrar el nuevo modelo completo
+        if (modeloPlataforma != null)
+        {
+            modeloPlataforma.SetActive(true);
+        }
+        else if (renderPlataforma != null)
+        {
+            renderPlataforma.enabled = true;
+        }
 
-        renderPlataforma.material = materialVerde;
+        if (colliderPlataforma != null)
+            colliderPlataforma.enabled = true;
 
-        Invoke("CambiarAmarillo", tiempoVisible - tiempoAmarillo);
-        Invoke("CambiarRojo", tiempoVisible - tiempoRojo);
-        Invoke("Desaparecer", tiempoVisible);
+        CambiarMaterial(materialVerde);
+
+        Invoke(nameof(CambiarAmarillo),
+            Mathf.Max(0f, tiempoVisible - tiempoAmarillo));
+
+        Invoke(nameof(CambiarRojo),
+            Mathf.Max(0f, tiempoVisible - tiempoRojo));
+
+        Invoke(nameof(Desaparecer), tiempoVisible);
     }
 }
