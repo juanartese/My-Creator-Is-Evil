@@ -31342,6 +31342,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 2891074996852556140}
+    - target: {fileID: 5220161266706625523, guid: 6729c50769627844586ce4b6fd592429, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5227266187369820847, guid: 6729c50769627844586ce4b6fd592429, type: 3}
       propertyPath: m_Name
       value: EnemigoArea (1)
@@ -35381,7 +35385,7 @@ PrefabInstance:
       objectReference: {fileID: 6899989391200671637}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 121.2
+      value: 107.7
       objectReference: {fileID: 0}
     - target: {fileID: 5671550141293250385, guid: 0c48409771b34344aac9a89eb90541af, type: 3}
       propertyPath: m_LocalPosition.y
@@ -52846,7 +52850,7 @@ PrefabInstance:
       objectReference: {fileID: 2105917125}
     - target: {fileID: 6968659732177265585, guid: da8674f37d85ce94796368074567b8a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.27
+      value: 169.1
       objectReference: {fileID: 0}
     - target: {fileID: 6968659732177265585, guid: da8674f37d85ce94796368074567b8a7, type: 3}
       propertyPath: m_LocalPosition.y
