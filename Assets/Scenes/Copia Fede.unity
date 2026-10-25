@@ -33318,6 +33318,22 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 670448153}
+    - target: {fileID: 3885849203117178183, guid: 6729c50769627844586ce4b6fd592429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8479466628e7b1b41b39db8595d8ad6f, type: 2}
+    - target: {fileID: 4534403590475882569, guid: 6729c50769627844586ce4b6fd592429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4503d6ce150466043a9e6d16579a4964, type: 2}
+    - target: {fileID: 4625761245942926516, guid: 6729c50769627844586ce4b6fd592429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8479466628e7b1b41b39db8595d8ad6f, type: 2}
+    - target: {fileID: 5146888146388243095, guid: 6729c50769627844586ce4b6fd592429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4503d6ce150466043a9e6d16579a4964, type: 2}
     - target: {fileID: 5227266187369820847, guid: 6729c50769627844586ce4b6fd592429, type: 3}
       propertyPath: m_Name
       value: EnemigoArea (1)
@@ -33362,10 +33378,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7085836589584481645, guid: 6729c50769627844586ce4b6fd592429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8479466628e7b1b41b39db8595d8ad6f, type: 2}
     - target: {fileID: 7513487933035240334, guid: 6729c50769627844586ce4b6fd592429, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1975649947}
+    - target: {fileID: 7523014905935082037, guid: 6729c50769627844586ce4b6fd592429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4503d6ce150466043a9e6d16579a4964, type: 2}
+    - target: {fileID: 8271774299877614226, guid: 6729c50769627844586ce4b6fd592429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8479466628e7b1b41b39db8595d8ad6f, type: 2}
+    - target: {fileID: 8703098656120230450, guid: 6729c50769627844586ce4b6fd592429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4503d6ce150466043a9e6d16579a4964, type: 2}
+    - target: {fileID: 8733115044674799633, guid: 6729c50769627844586ce4b6fd592429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8479466628e7b1b41b39db8595d8ad6f, type: 2}
+    - target: {fileID: 9118388217873842110, guid: 6729c50769627844586ce4b6fd592429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8479466628e7b1b41b39db8595d8ad6f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
