@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,17 @@ public class EstacionVida : MonoBehaviour
 
     private void Start()
     {
+        // Buscar la llave si no esta asignada
+        if (llaveCarga == null)
+        {
+            GameObject objetoLlave = GameObject.Find("LlaveCarga");
+
+            if (objetoLlave != null)
+            {
+                llaveCarga = objetoLlave.GetComponent<Image>();
+            }
+        }
+
         if (luzEstado != null && materialVerde != null)
         {
             luzEstado.material = materialVerde;

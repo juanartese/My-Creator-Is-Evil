@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,17 @@ public class SonidoReparacion : MonoBehaviour
 
     private void Start()
     {
+        // Buscar la llave si no esta asignada
+        if (llaveCarga == null)
+        {
+            GameObject objetoLlave = GameObject.Find("LlaveCarga");
+
+            if (objetoLlave != null)
+            {
+                llaveCarga = objetoLlave.GetComponent<Image>();
+            }
+        }
+
         // La llave empieza apagada
         if (llaveCarga != null)
         {
@@ -38,9 +50,9 @@ public class SonidoReparacion : MonoBehaviour
                 sonidoTaladro.Play();
             }
         }
-        // Si desaparece la llave, se corta el sonido
         else
         {
+            // Si desaparece la llave, se corta el sonido
             if (sonidoTaladro.isPlaying)
             {
                 sonidoTaladro.Stop();
