@@ -1,3 +1,4 @@
+
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -23,9 +24,11 @@ public class PlayerMovement : MonoBehaviour
     public float coyoteTime = 0.1f;
     private float coyoteTimer = 0f;
     public bool usingJetpack = false;
+
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float bulletForce = 200f;
+
     private int soundCodex = 1;
     public AudioSource sonidoSalto;
     public AudioSource sonidoS1;
@@ -36,44 +39,92 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource sonidoS6;
     public AudioSource sonidoS7;
 
+    // Bananas propulsoras
+    public GameObject bananaIzquierda;
+    public GameObject bananaDerecha;
+    public ParticleSystem propulsorBananaIzquierda;
+    public ParticleSystem propulsorBananaDerecha;
 
     void Start()
     {
         isGrounded = true;
-        
+
         jumpInput.action.performed += OnJump;
         attackInput.action.performed += OnFire;
+
+        ActualizarBananas();
+
+        DetenerPropulsores();
     }
+
     private void OnDestroy()
-{
-    jumpInput.action.performed -= OnJump;
-    attackInput.action.performed -= OnFire;
-}
+    {
+        jumpInput.action.performed -= OnJump;
+        attackInput.action.performed -= OnFire;
+    }
+
+    private void Update()
+    {
+        // Mostrar las bananas al desbloquear el doble salto
+        ActualizarBananas();
+    }
+
+    private void ActualizarBananas()
+    {
+        if (bananaIzquierda != null && bananaIzquierda.activeSelf != unlockDoubleJump)
+            bananaIzquierda.SetActive(unlockDoubleJump);
+
+        if (bananaDerecha != null && bananaDerecha.activeSelf != unlockDoubleJump)
+            bananaDerecha.SetActive(unlockDoubleJump);
+    }
+
+    private void DetenerPropulsores()
+    {
+        if (propulsorBananaIzquierda != null)
+            propulsorBananaIzquierda.Stop(
+                true,
+                ParticleSystemStopBehavior.StopEmittingAndClear
+            );
+
+        if (propulsorBananaDerecha != null)
+            propulsorBananaDerecha.Stop(
+                true,
+                ParticleSystemStopBehavior.StopEmittingAndClear
+            );
+    }
 
     void FixedUpdate()
     {
         if (PauseMenu.GameIsPaused) return;
 
         var moveDirection = (Vector3)moveInput.action.ReadValue<Vector2>() * Speed;
-        rb.linearVelocity = new Vector3 (moveDirection.x, rb.linearVelocity.y, moveDirection.y);  
-        
+
+        rb.linearVelocity = new Vector3(
+            moveDirection.x,
+            rb.linearVelocity.y,
+            moveDirection.y
+        );
+
         if (isGrounded)
         {
             coyoteTimer = 0f;
+
             if (jPackUse < jPackDuration)
             {
-                jPackUse = Mathf.Lerp(jPackUse,jPackDuration,0.5f);
+                jPackUse = Mathf.Lerp(jPackUse, jPackDuration, 0.5f);
             }
         }
         else
         {
             coyoteTimer += Time.deltaTime;
         }
+
         if (usingJetpack == true)
         {
-            rb.AddForce(Vector3.up * jPackForce,ForceMode.Force);
+            rb.AddForce(Vector3.up * jPackForce, ForceMode.Force);
             jPackUse -= Time.deltaTime;
         }
+
         if (jPackUse <= 0)
         {
             usingJetpack = false;
@@ -90,62 +141,80 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
             dJump = true;
             coyoteTimer = 0f;
+
+            // Apagar las particulas al tocar el suelo
+            DetenerPropulsores();
         }
     }
 
     private void OnCollisionExit()
     {
-         isGrounded = false;
+        isGrounded = false;
     }
 
     private void OnJump(InputAction.CallbackContext context)
     {
         if (PauseMenu.GameIsPaused) return;
+
         soundCodex = Random.Range(1, 8);
+
         if (soundCodex == 1)
-        {
             sonidoSalto = sonidoS1;
-        }
+
         if (soundCodex == 2)
-        {
             sonidoSalto = sonidoS2;
-        }
+
         if (soundCodex == 3)
-        {
             sonidoSalto = sonidoS3;
-        }
+
         if (soundCodex == 4)
-        {
             sonidoSalto = sonidoS4;
-        }
+
         if (soundCodex == 5)
-        {
             sonidoSalto = sonidoS5;
-        }
+
         if (soundCodex == 6)
-        {
             sonidoSalto = sonidoS6;
-        }
+
         if (soundCodex == 7)
-        {
             sonidoSalto = sonidoS7;
-        }
+
         if (coyoteTimer <= coyoteTime)
         {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
+            rb.linearVelocity = new Vector3(
+                rb.linearVelocity.x,
+                jumpForce,
+                rb.linearVelocity.z
+            );
+
             sonidoSalto.Play();
         }
-        else 
+        else
         {
-            if(unlockDoubleJump && dJump)
+            if (unlockDoubleJump && dJump)
             {
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x, dJumpForce, rb.linearVelocity.z);
+                rb.linearVelocity = new Vector3(
+                    rb.linearVelocity.x,
+                    dJumpForce,
+                    rb.linearVelocity.z
+                );
+
                 dJump = false;
                 sonidoSalto.Play();
+
+                // Activar las bananas en el segundo salto
+                if (propulsorBananaIzquierda != null)
+                    propulsorBananaIzquierda.Play();
+
+                if (propulsorBananaDerecha != null)
+                    propulsorBananaDerecha.Play();
             }
             else
             {
-                if (isGrounded == false && dJump == false && unlockJetpack && usingJetpack == false)
+                if (isGrounded == false &&
+                    dJump == false &&
+                    unlockJetpack &&
+                    usingJetpack == false)
                 {
                     usingJetpack = true;
                 }
@@ -155,6 +224,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+
         isGrounded = false;
     }
 
@@ -164,7 +234,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (context.performed)
         {
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            GameObject bullet = Instantiate(
+                bulletPrefab,
+                firePoint.position,
+                firePoint.rotation
+            );
         }
     }
 }
