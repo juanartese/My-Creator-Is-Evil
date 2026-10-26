@@ -9,8 +9,8 @@ public class AreaMovement : MonoBehaviour
     public float speed;
     public float Life;
 
-    [Header("UI Feedback")]
-    public AbilityNotificationUI notificationUI;
+    [Header("Drops")]
+    public GameObject pickupPrefab; // Drag your new Pickup Prefab here in the Inspector
 
     void Start()
     {
@@ -28,24 +28,16 @@ public class AreaMovement : MonoBehaviour
             transform.position += transform.forward * speed * Time.deltaTime;
         }
 
-if (Life <= 0)
-{
+        if (Life <= 0)
+        {
+            // Spawn the pickup slightly above the enemy so it doesn't clip into the floor
+            if (pickupPrefab != null)
+            {
+                Vector3 spawnPos = transform.position + (Vector3.up * 1f);
+                Instantiate(pickupPrefab, spawnPos, Quaternion.identity);
+            }
 
-    if (Player != null)
-    {
-        Player.GetComponent<PlayerMovement>().unlockDoubleJump = true;
-    }
-
-    if (AbilityNotificationUI.Instance != null)
-    {
-        AbilityNotificationUI.Instance.ShowUnlockNotification(
-            "DOUBLE JUMP UNLOCKED",
-            "Press [Space] in mid-air to jump again"
-        );
-    }
-
-
-    Destroy(gameObject);
-}
+            Destroy(gameObject);
+        }
     }
 }
