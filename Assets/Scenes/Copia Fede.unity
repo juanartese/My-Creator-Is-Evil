@@ -7763,7 +7763,7 @@ PrefabInstance:
     - target: {fileID: 1696922144066489222, guid: edb6febf688675344a114a44ae78e9ac, type: 3}
       propertyPath: modeloVisual
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1834634719}
     - target: {fileID: 1999124483140548800, guid: edb6febf688675344a114a44ae78e9ac, type: 3}
       propertyPath: m_Name
       value: TuboEntrada
@@ -59472,6 +59472,11 @@ PrefabInstance:
       addedObject: {fileID: 934905385}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed221b2e53064f543a3b26fe4ec4a9c2, type: 3}
+--- !u!1 &1834634719 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1588854173860371910, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
+  m_PrefabInstance: {fileID: 670448152}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1835948759
 GameObject:
   m_ObjectHideFlags: 0
