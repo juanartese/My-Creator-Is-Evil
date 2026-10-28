@@ -37912,6 +37912,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 191137770892831949, guid: 6729c50769627844586ce4b6fd592429, type: 3}
+      propertyPath: m_Volume
+      value: 0.354
+      objectReference: {fileID: 0}
+    - target: {fileID: 191137770892831949, guid: 6729c50769627844586ce4b6fd592429, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
@@ -46477,6 +46481,10 @@ PrefabInstance:
       propertyPath: hurtSound
       value: 
       objectReference: {fileID: 1774825882}
+    - target: {fileID: 6564731253372963152, guid: 0d483e1b0da03884ea821bf10dd6ff64, type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6564731253372963152, guid: 0d483e1b0da03884ea821bf10dd6ff64, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
