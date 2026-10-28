@@ -22073,6 +22073,8 @@ MonoBehaviour:
   materialRojo: {fileID: 2100000, guid: 07bf8432df3fcee4f893e3a4c9f419aa, type: 2}
   tiempoAmarillo: 0.1
   tiempoRojo: 0.6
+  renderersLED: []
+  modeloPlataforma: {fileID: 0}
 --- !u!65 &886367660
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31344,7 +31346,7 @@ PrefabInstance:
       objectReference: {fileID: 2891074996852556140}
     - target: {fileID: 5220161266706625523, guid: 6729c50769627844586ce4b6fd592429, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5227266187369820847, guid: 6729c50769627844586ce4b6fd592429, type: 3}
       propertyPath: m_Name
@@ -43390,6 +43392,8 @@ MonoBehaviour:
   materialRojo: {fileID: 2100000, guid: 07bf8432df3fcee4f893e3a4c9f419aa, type: 2}
   tiempoAmarillo: 0.1
   tiempoRojo: 0.6
+  renderersLED: []
+  modeloPlataforma: {fileID: 0}
 --- !u!65 &1687084113
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52002,6 +52006,8 @@ MonoBehaviour:
   materialRojo: {fileID: 2100000, guid: 07bf8432df3fcee4f893e3a4c9f419aa, type: 2}
   tiempoAmarillo: 0.1
   tiempoRojo: 0.6
+  renderersLED: []
+  modeloPlataforma: {fileID: 0}
 --- !u!65 &2111665104
 BoxCollider:
   m_ObjectHideFlags: 0
