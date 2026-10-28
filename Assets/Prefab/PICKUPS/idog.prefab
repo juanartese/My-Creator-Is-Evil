@@ -5057,6 +5057,7 @@ MonoBehaviour:
   floatHeight: 0.5
   rotationSpeed: 50
   pickupEffect: {fileID: 0}
+  spawnSound: {fileID: 8300000, guid: 03c9896fe3b5ed24e8670ba43c7f42c1, type: 3}
   pickupSound: {fileID: 0}
 --- !u!65 &8944309141193655154
 BoxCollider:
@@ -5077,5 +5078,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.017031042, y: 0.010307664, z: 0.021426005}
-  m_Center: {x: 0.00016254457, y: 0.00011143324, z: 0.0005411942}
+  m_Size: {x: 0.017031042, y: 0.020634754, z: 0.021426005}
+  m_Center: {x: 0.00016254457, y: -0.005052129, z: 0.0005411942}

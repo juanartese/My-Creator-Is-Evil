@@ -1,7 +1,9 @@
 using UnityEngine;
-
-public class EnemigoGancho : MonoBehaviour
+public class EnemigoGancho : MonoBehaviour, IDamageable
 {
+
+    [Header("Feedback")]
+    public AudioSource hurtSound;
     public Gancho gancho;
     public Transform puntoGancho;
 
@@ -22,7 +24,9 @@ public class EnemigoGancho : MonoBehaviour
     public GameObject jetPack;
     private bool jugadorDetectado = false;
     private float tiempoActual = 0f;
-    public float Life;
+    
+    // Changed from float to int to match the IDamageable system
+    public int Life = 100; 
 
     // Lugar donde estaba el enemigo al comenzar
     private Vector3 posicionInicial;
@@ -30,10 +34,7 @@ public class EnemigoGancho : MonoBehaviour
     private void Start()
     {
         gancho.Preparar(puntoGancho);
-
         cilindroVisual.material = materialVerde;
-
-        // Guardamos su posicion original
         posicionInicial = transform.position;
     }
 
@@ -41,8 +42,6 @@ public class EnemigoGancho : MonoBehaviour
     {
         if (jugadorDetectado && jugador != null)
         {
-            // Mientras el gancho esta afuera,
-            // el enemigo se queda quieto
             if (!gancho.EstaLanzado)
             {
                 MirarAlJugador();
@@ -59,76 +58,39 @@ public class EnemigoGancho : MonoBehaviour
         }
         else
         {
-            // Si perdio al jugador, vuelve a su lugar
             VolverAPosicionInicial();
         }
-        if (Life <= 0)
-        {
-            if (Player.GetComponent<PlayerMovement>().unlockJetpack == false)
-            Player.GetComponent<PlayerMovement>().unlockJetpack = true;
-            jetPack.active = true;
-            Destroy(gameObject);
-        }
+        
     }
 
     private void MirarAlJugador()
     {
-        Vector3 direccionJugador =
-            jugador.position - transform.position;
-
+        Vector3 direccionJugador = jugador.position - transform.position;
         direccionJugador.y = 0f;
 
-        Vector3 direccionPuntoGancho =
-            puntoGancho.position - transform.position;
-
+        Vector3 direccionPuntoGancho = puntoGancho.position - transform.position;
         direccionPuntoGancho.y = 0f;
 
-        if (direccionJugador != Vector3.zero &&
-            direccionPuntoGancho != Vector3.zero)
+        if (direccionJugador != Vector3.zero && direccionPuntoGancho != Vector3.zero)
         {
-            float angulo = Vector3.SignedAngle(
-                direccionPuntoGancho,
-                direccionJugador,
-                Vector3.up
-            );
-
-            Quaternion rotacionObjetivo =
-                Quaternion.AngleAxis(angulo, Vector3.up)
-                * transform.rotation;
-
-            transform.rotation = Quaternion.Slerp(
-                transform.rotation,
-                rotacionObjetivo,
-                velocidadGiro * Time.deltaTime
-            );
+            float angulo = Vector3.SignedAngle(direccionPuntoGancho, direccionJugador, Vector3.up);
+            Quaternion rotacionObjetivo = Quaternion.AngleAxis(angulo, Vector3.up) * transform.rotation;
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, velocidadGiro * Time.deltaTime);
         }
     }
 
     private void PerseguirJugador()
     {
-        // No queremos que se meta encima del Player
-        float distanciaJugador =
-            Vector3.Distance(transform.position, jugador.position);
+        float distanciaJugador = Vector3.Distance(transform.position, jugador.position);
 
-        if (distanciaJugador <= distanciaMinimaJugador)
-        {
-            return;
-        }
+        if (distanciaJugador <= distanciaMinimaJugador) return;
 
-        // Direccion hacia el jugador
-        Vector3 direccion =
-            jugador.position - transform.position;
-
+        Vector3 direccion = jugador.position - transform.position;
         direccion.y = 0f;
         direccion.Normalize();
 
-        Vector3 siguientePosicion =
-            transform.position +
-            direccion * velocidadMovimiento * Time.deltaTime;
-
-        // Comprobamos cuanto se alejaria de su punto inicial
-        float distanciaDesdeInicio =
-            Vector3.Distance(posicionInicial, siguientePosicion);
+        Vector3 siguientePosicion = transform.position + direccion * velocidadMovimiento * Time.deltaTime;
+        float distanciaDesdeInicio = Vector3.Distance(posicionInicial, siguientePosicion);
 
         if (distanciaDesdeInicio <= distanciaMaximaPersecucion)
         {
@@ -140,17 +102,11 @@ public class EnemigoGancho : MonoBehaviour
     {
         Vector3 destino = posicionInicial;
         destino.y = transform.position.y;
-
-        float distancia =
-            Vector3.Distance(transform.position, destino);
+        float distancia = Vector3.Distance(transform.position, destino);
 
         if (distancia > 0.1f)
         {
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                destino,
-                velocidadMovimiento * Time.deltaTime
-            );
+            transform.position = Vector3.MoveTowards(transform.position, destino, velocidadMovimiento * Time.deltaTime);
         }
     }
 
@@ -160,12 +116,8 @@ public class EnemigoGancho : MonoBehaviour
         {
             jugador = other.transform;
             jugadorDetectado = true;
-
             cilindroVisual.material = materialRojo;
-
             tiempoActual = tiempoEntreDisparos - 0.3f;
-
-            print("JUGADOR DETECTADO");
         }
     }
 
@@ -174,10 +126,37 @@ public class EnemigoGancho : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jugadorDetectado = false;
-
             cilindroVisual.material = materialVerde;
+        }
+    }
 
-            print("JUGADOR SALIO DEL RANGO");
+    public void TakeDamage(int amount)
+    {
+        Life -= amount;
+
+        //FLASH ON HIT LINES HERE
+        FlashOnHit flash = GetComponent<FlashOnHit>();
+        if (flash != null) flash.TriggerFlash();
+
+        // Audio Feedback
+        if (hurtSound != null && hurtSound.clip != null) 
+        {
+            hurtSound.pitch = Random.Range(0.8f, 1.2f);
+            
+            //This layers the sound instead of restarting it
+            hurtSound.PlayOneShot(hurtSound.clip);
+        }
+        
+        if (Life <= 0)
+        {
+            if (Player.GetComponent<PlayerMovement>().unlockJetpack == false)
+            {
+                Player.GetComponent<PlayerMovement>().unlockJetpack = true;
+            }
+            
+            if (jetPack != null) jetPack.SetActive(true); 
+            
+            Destroy(gameObject);
         }
     }
 }

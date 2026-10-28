@@ -9,13 +9,20 @@ public class DoubleJumpPickup : MonoBehaviour
 
     [Header("Effects")]
     public GameObject pickupEffect; 
+    
+    public AudioClip spawnSound; 
     public AudioClip pickupSound; 
 
     private Vector3 startPos;
 
-    void Start()
+void Start()
     {
         startPos = transform.position;
+
+        if (spawnSound != null)
+        {
+            AudioSource.PlayClipAtPoint(spawnSound, Camera.main.transform.position);
+        }
     }
 
     void Update()

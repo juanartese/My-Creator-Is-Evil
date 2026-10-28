@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -19,46 +18,25 @@ public class Bullet : MonoBehaviour
         rb.transform.position += rb.transform.forward * speed * Time.deltaTime;
     }
 
-    private void OnCollisionEnter(Collision collision)
+private void OnCollisionEnter(Collision collision)
     {
-        var enemy1 = collision.gameObject.GetComponent<EnemyMovement>();
-        var enemy2 = collision.gameObject.GetComponent<AreaMovement>();
-        var enemy3 = collision.gameObject.GetComponent<EnemigoGancho>();
-
-        // Detectar TNT explosiva
+        //this is for the tnt, didn't know if i should change (don't know how the tnt script works)
         var tnt = collision.gameObject.GetComponent<TNTExplosiva>();
-
         if (tnt != null)
         {
             tnt.Explotar();
         }
 
-        if (enemy2 != null)
+        //this checks for the Idamagable script i made, easier than a bunch of if else statements :b
+        IDamageable damageableTarget = collision.gameObject.GetComponent<IDamageable>();
+        if (damageableTarget != null)
         {
-            enemy2.Life = enemy2.Life - damage;
+            damageableTarget.TakeDamage(damage);
         }
 
-        if (enemy1 != null)
+        if (!collision.gameObject.CompareTag("Player"))
         {
-            enemy1.Life = enemy1.Life - damage;
-        }
-
-        if (enemy3 != null)
-        {
-            enemy3.Life = enemy3.Life - damage;
-        }
-
-        if (collision.gameObject.CompareTag("Player"))
-        {
-        }
-        else
-        {
-            GameObject fx = Instantiate(
-                explosionPrefab,
-                transform.position,
-                Quaternion.identity
-            );
-
+            GameObject fx = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             ParticleSystem ps = fx.GetComponent<ParticleSystem>();
 
             if (ps != null)

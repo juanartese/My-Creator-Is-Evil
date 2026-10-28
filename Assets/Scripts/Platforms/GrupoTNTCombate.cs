@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class GrupoTNTCombate : MonoBehaviour
@@ -7,7 +6,9 @@ public class GrupoTNTCombate : MonoBehaviour
     public Transform centroExplosion;
 
     public float radioExplosion = 5f;
-    public float danoExplosion = 250f;
+    
+    //Changed this from float to int
+    public int danoExplosion = 250; 
 
     private bool danoAplicado = false;
 
@@ -41,7 +42,8 @@ public class GrupoTNTCombate : MonoBehaviour
         // Aplicar dano si esta dentro del radio
         if (distancia <= radioExplosion)
         {
-            enemigo.Life -= danoExplosion;
+            // Use the TakeDamage method instead of directly subtracting Life
+            enemigo.TakeDamage(danoExplosion);
 
             Debug.Log("TNT: Enemigo recibio 250 de dano");
             Debug.Log("TNT DEBUG - Vida restante: " + enemigo.Life);
