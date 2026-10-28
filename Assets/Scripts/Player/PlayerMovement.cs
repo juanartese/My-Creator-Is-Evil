@@ -28,13 +28,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float bulletForce = 200f;
     private int soundCodex = 1;
     public AudioSource sonidoSalto;
-    public AudioSource sonidoS1;
-    public AudioSource sonidoS2;
-    public AudioSource sonidoS3;
-    public AudioSource sonidoS4;
-    public AudioSource sonidoS5;
-    public AudioSource sonidoS6;
-    public AudioSource sonidoS7;
 
 
     void Start()
@@ -101,35 +94,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnJump(InputAction.CallbackContext context)
     {
         if (PauseMenu.GameIsPaused) return;
-        soundCodex = Random.Range(1, 8);
-        if (soundCodex == 1)
-        {
-            sonidoSalto = sonidoS1;
-        }
-        if (soundCodex == 2)
-        {
-            sonidoSalto = sonidoS2;
-        }
-        if (soundCodex == 3)
-        {
-            sonidoSalto = sonidoS3;
-        }
-        if (soundCodex == 4)
-        {
-            sonidoSalto = sonidoS4;
-        }
-        if (soundCodex == 5)
-        {
-            sonidoSalto = sonidoS5;
-        }
-        if (soundCodex == 6)
-        {
-            sonidoSalto = sonidoS6;
-        }
-        if (soundCodex == 7)
-        {
-            sonidoSalto = sonidoS7;
-        }
         if (coyoteTimer <= coyoteTime)
         {
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
