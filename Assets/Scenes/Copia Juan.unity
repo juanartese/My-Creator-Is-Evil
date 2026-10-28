@@ -52830,6 +52830,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4628970999294054662, guid: da8674f37d85ce94796368074567b8a7, type: 3}
+      propertyPath: Priority
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628970999294054662, guid: da8674f37d85ce94796368074567b8a7, type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
+      value: 0.08611111
+      objectReference: {fileID: 0}
     - target: {fileID: 5623509743755881503, guid: da8674f37d85ce94796368074567b8a7, type: 3}
       propertyPath: vida1
       value: 

@@ -24,11 +24,7 @@ public class PlayerHealth : MonoBehaviour
     private Color amarillo = Color.yellow;
     private Color rojo = Color.red;
     private Color apagado = new Color(0.12f, 0.14f, 0.16f, 1f);
-    private int soundCodex;
     public AudioSource sonidoGolpe;
-    public AudioSource sonidoG1;
-    public AudioSource sonidoG2;
-    public AudioSource sonidoG3;
 
     private void Start()
     {
@@ -44,19 +40,6 @@ public class PlayerHealth : MonoBehaviour
     public void RecibirDanio(int cantidad)
     {
         if (vidaActual <= 0) return;
-        soundCodex = Random.Range(1, 4);
-        if (soundCodex == 1)
-        {
-            sonidoGolpe = sonidoG1;
-        }
-        if (soundCodex == 2)
-        {
-            sonidoGolpe = sonidoG2;
-        }
-        if (soundCodex == 3)
-        {
-            sonidoGolpe = sonidoG3;
-        }
         sonidoGolpe.Play();
         vidaActual -= cantidad;
 

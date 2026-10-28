@@ -26,8 +26,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float bulletForce = 200f;
-    private int soundCodex = 1;
     public AudioSource sonidoSalto;
+    public AudioSource sonidoCaida;
+    public AudioSource sonidoDisparo;
 
 
     void Start()
@@ -129,6 +130,8 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            sonidoDisparo.Play();
+
         }
     }
 }
