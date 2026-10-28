@@ -21085,11 +21085,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2891074997309094772, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.31
+      value: -15.96
       objectReference: {fileID: 0}
     - target: {fileID: 2891074997309094772, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.37
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 2891074997309094772, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21135,6 +21135,10 @@ PrefabInstance:
       propertyPath: sonidoDisparo
       value: 
       objectReference: {fileID: 2018176053}
+    - target: {fileID: 3518178146198957458, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4294398637465368360, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.834
@@ -33334,7 +33338,7 @@ Transform:
   m_GameObject: {fileID: 1054104530}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000006407499}
-  m_LocalPosition: {x: 108.9, y: 14, z: 0}
+  m_LocalPosition: {x: 108.9, y: 19.9, z: 0}
   m_LocalScale: {x: 0.29012054, y: 0.29012054, z: 0.29012054}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36074,7 +36078,7 @@ Transform:
   m_GameObject: {fileID: 1170342571}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -26.94, y: 16.3, z: 30}
+  m_LocalPosition: {x: -24.35, y: 19.41, z: 30}
   m_LocalScale: {x: 0.4, y: 1, z: 0.50447875}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46481,6 +46485,10 @@ PrefabInstance:
       propertyPath: hurtSound
       value: 
       objectReference: {fileID: 1774825882}
+    - target: {fileID: 4673184676101216978, guid: 0d483e1b0da03884ea821bf10dd6ff64, type: 3}
+      propertyPath: jetpackPrefab
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6564731253372963152, guid: 0d483e1b0da03884ea821bf10dd6ff64, type: 3}
       propertyPath: m_Volume
       value: 0.3
