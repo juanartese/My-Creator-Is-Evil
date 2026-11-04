@@ -30,11 +30,13 @@ public class MonkeyAI : MonoBehaviour, IDamageable
     public GameObject pickupPrefab; 
 
     private Rigidbody rb;
-    private bool isAttacking = false; // This replaces turning scripts on/off!
+    private Animator anim; // 1. Added Animator variable
+    private bool isAttacking = false; 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>(); // 2. Grab the Animator component
         
         if (player == null)
         {
@@ -83,6 +85,8 @@ public class MonkeyAI : MonoBehaviour, IDamageable
                 // Lock movement
                 isAttacking = true;
 
+                if (anim != null) anim.CrossFade("MonkeyJump", 0.1f);
+
                 // Jump
                 rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
                 
@@ -95,7 +99,10 @@ public class MonkeyAI : MonoBehaviour, IDamageable
                     Instantiate(attackType, shotPoint.position, shotPoint.rotation);
                 }
 
-                // Wait to recover
+                // PUT ARMS BACK DOWN IMMEDIATELY AFTER SHOOTING!
+                if (anim != null) anim.CrossFade("MonkeyIdle", 0.2f);
+
+                // Wait to recover on the ground (with arms already down)
                 yield return new WaitForSeconds(duration);
 
                 // Unlock movement
@@ -139,7 +146,6 @@ public class MonkeyAI : MonoBehaviour, IDamageable
         Destroy(gameObject);
     }
 }
-
 //to whoever reads this, make sure to add this two lines of code to the main enemy script to make this "flash on hit" script work, they must be on a "public void TakeDamage(int amount)": 
 // FlashOnHit flash = GetComponent<FlashOnHit>();
         //if (flash != null) flash.TriggerFlash();
