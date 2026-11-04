@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float duration;
     public int damage;
     public GameObject explosionPrefab;
+    public GameObject sparkPrefab;
 
     void Start()
     {
@@ -32,6 +33,7 @@ private void OnCollisionEnter(Collision collision)
         if (damageableTarget != null)
         {
             damageableTarget.TakeDamage(damage);
+            GameObject sparks = Instantiate(sparkPrefab, transform.position, transform.rotation);
         }
 
         if (!collision.gameObject.CompareTag("Player"))
