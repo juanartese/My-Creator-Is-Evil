@@ -15,7 +15,7 @@ public class DoubleJumpPickup : MonoBehaviour
 
     private Vector3 startPos;
 
-    void Start()
+void Start()
     {
         startPos = transform.position;
 
