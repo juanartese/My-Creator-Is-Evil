@@ -15,9 +15,47 @@ public class ImanInteractivo : MonoBehaviour
     public float distanciaInteraccion = 3f;
     public float distanciaInstalacion = 3f;
     public Vector3 posicionEnMano = new Vector3(0.6f, 0.5f, 0f);
+    [Header("Holograma")]
+    [SerializeField] private GameObject canvasInteracciones;
 
     private bool recogido = false;
     private bool instalado = false;
+
+    private void Start()
+    {
+        if (canvasInteracciones != null)
+        {
+            canvasInteracciones.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (canvasInteracciones == null || jugador == null)
+            return;
+
+        bool mostrarHolograma = false;
+
+        if (!recogido && puntoInteraccion != null)
+        {
+            float distancia = Vector3.Distance(
+                jugador.position,
+                puntoInteraccion.position
+            );
+
+            mostrarHolograma = distancia <= distanciaInteraccion;
+        }
+
+        if (canvasInteracciones.activeSelf != mostrarHolograma)
+        {
+            canvasInteracciones.SetActive(mostrarHolograma);
+        }
+    }
+
+    public bool EstaRecogido()
+    {
+        return recogido;
+    }
 
     private void OnEnable()
     {
