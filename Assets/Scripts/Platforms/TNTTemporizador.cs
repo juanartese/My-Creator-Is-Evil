@@ -1,4 +1,3 @@
-
 using System.Collections;
 using UnityEngine;
 
@@ -10,19 +9,61 @@ public class TNTTemporizador : MonoBehaviour
     public AudioClip sonidoExplosion;
     public BotonPuerta botonPuerta;
 
+    [Header("Pulso visual")]
+    public Transform modeloVisual;
+
+    [Range(0f, 0.5f)]
+    public float aumentoEscala = 0.12f;
+
+    public float pulsosPorSegundoInicio = 1f;
+    public float pulsosPorSegundoFinal = 4f;
+
     private bool activada = false;
     private bool estabaCayendo = false;
     private Rigidbody rb;
 
+    private Vector3 escalaOriginal;
+    private float tiempoPulso;
+    private float fasePulso;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        if (modeloVisual != null)
+            escalaOriginal = modeloVisual.localScale;
     }
 
     void FixedUpdate()
     {
-        if (rb.linearVelocity.y < -velocidadMinimaCaida)
+        if (rb != null && rb.linearVelocity.y < -velocidadMinimaCaida)
             estabaCayendo = true;
+    }
+
+    void Update()
+    {
+        if (!activada || modeloVisual == null)
+            return;
+
+        tiempoPulso += Time.deltaTime;
+
+        float progreso = Mathf.Clamp01(
+            tiempoPulso / Mathf.Max(tiempoExplosion, 0.01f)
+        );
+
+        float frecuencia = Mathf.Lerp(
+            pulsosPorSegundoInicio,
+            pulsosPorSegundoFinal,
+            progreso
+        );
+
+        fasePulso += frecuencia * Mathf.PI * 2f * Time.deltaTime;
+
+        // Va suavemente de tamaño normal a inflado y vuelve.
+        float pulso = (1f - Mathf.Cos(fasePulso)) * 0.5f;
+
+        modeloVisual.localScale =
+            escalaOriginal * (1f + pulso * aumentoEscala);
     }
 
     void OnCollisionEnter(Collision colision)
@@ -35,6 +76,9 @@ public class TNTTemporizador : MonoBehaviour
             if (Vector3.Dot(contacto.normal, Vector3.up) > 0.5f)
             {
                 activada = true;
+                tiempoPulso = 0f;
+                fasePulso = 0f;
+
                 StartCoroutine(CuentaRegresiva());
                 break;
             }
@@ -86,7 +130,8 @@ public class TNTTemporizador : MonoBehaviour
                 Quaternion.identity
             );
 
-            ParticleSystem particulas = explosion.GetComponent<ParticleSystem>();
+            ParticleSystem particulas =
+                explosion.GetComponent<ParticleSystem>();
 
             if (particulas != null)
                 particulas.Play();
@@ -98,7 +143,6 @@ public class TNTTemporizador : MonoBehaviour
         if (botonPuerta != null)
             botonPuerta.TNTExploto();
 
-        // Destruir TNT
         Destroy(gameObject);
     }
 }
