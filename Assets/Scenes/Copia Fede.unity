@@ -65096,6 +65096,10 @@ PrefabInstance:
       propertyPath: botonPuerta
       value: 
       objectReference: {fileID: 1814957601}
+    - target: {fileID: 4755026797492422933, guid: 2496e1d9ccf2cf74181447eb3261ee9a, type: 3}
+      propertyPath: volumenPitido
+      value: 0.95
+      objectReference: {fileID: 0}
     - target: {fileID: 6398477122097592071, guid: 2496e1d9ccf2cf74181447eb3261ee9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 84.4

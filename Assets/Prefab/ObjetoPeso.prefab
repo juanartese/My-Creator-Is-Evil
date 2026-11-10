@@ -159,6 +159,7 @@ MonoBehaviour:
   aumentoEscala: 0.12
   pulsosPorSegundoInicio: 1
   pulsosPorSegundoFinal: 4
+  volumenPitido: 1
 --- !u!1001 &527893677563670183
 PrefabInstance:
   m_ObjectHideFlags: 0
