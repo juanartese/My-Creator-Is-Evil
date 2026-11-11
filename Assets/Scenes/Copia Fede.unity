@@ -21248,7 +21248,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3166730358997257229, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
 <<<<<<< HEAD
-<<<<<<< HEAD
       propertyPath: bananaDerecha
       value: 
       objectReference: {fileID: 1726678399}
@@ -21273,8 +21272,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1975649954}
 =======
-=======
->>>>>>> a308b95f9a07b978518fd67cb0104418ddef1c40
       propertyPath: sonidoCaida
       value: 
       objectReference: {fileID: 1097802493}
@@ -56996,7 +56993,6 @@ MeshFilter:
   m_GameObject: {fileID: 1725967875}
   m_Mesh: {fileID: -7074007238773475336, guid: bd2d26d41e7c4b644b3f913c98b49a19, type: 3}
 <<<<<<< HEAD
-<<<<<<< HEAD
 --- !u!198 &1726678398 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2330937731001929152, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
@@ -57007,8 +57003,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7541273111525950748, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
   m_PrefabInstance: {fileID: 670448152}
   m_PrefabAsset: {fileID: 0}
-=======
->>>>>>> a308b95f9a07b978518fd67cb0104418ddef1c40
 =======
 >>>>>>> a308b95f9a07b978518fd67cb0104418ddef1c40
 --- !u!1 &1728537085
@@ -57263,7 +57257,6 @@ MeshFilter:
   m_GameObject: {fileID: 1733152946}
   m_Mesh: {fileID: -5302633265429289067, guid: ed221b2e53064f543a3b26fe4ec4a9c2, type: 3}
 <<<<<<< HEAD
-<<<<<<< HEAD
 --- !u!198 &1739794621 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6300962954749936184, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
@@ -57274,8 +57267,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 575107711387979103, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
   m_PrefabInstance: {fileID: 670448152}
   m_PrefabAsset: {fileID: 0}
-=======
->>>>>>> a308b95f9a07b978518fd67cb0104418ddef1c40
 =======
 >>>>>>> a308b95f9a07b978518fd67cb0104418ddef1c40
 --- !u!1 &1744033963
