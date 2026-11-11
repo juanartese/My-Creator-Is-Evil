@@ -9,7 +9,7 @@ public class MonkeyAI : MonoBehaviour, IDamageable
     public AudioSource hurtSound;
 
     [Header("Stats")]
-    public int life = 1000;
+    public int life = 100;
     public float speed = 5f;
     public float turnSpeed = 8f;
 
@@ -31,9 +31,7 @@ public class MonkeyAI : MonoBehaviour, IDamageable
 
     private Rigidbody rb;
     private Animator anim; // 1. Added Animator variable
-    private bool isAttacking = false;
-    private bool execOnce = true;
-    public GameObject damageSparks;
+    private bool isAttacking = false; 
 
     void Start()
     {
@@ -44,7 +42,7 @@ public class MonkeyAI : MonoBehaviour, IDamageable
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
-            StartCoroutine(AttackRoutineB());
+        StartCoroutine(AttackRoutine());
     }
 
     void FixedUpdate()
@@ -72,29 +70,18 @@ public class MonkeyAI : MonoBehaviour, IDamageable
                 rb.linearVelocity = new Vector3(moveVelocity.x, rb.linearVelocity.y, moveVelocity.z);
             }
         }
-            if (life <= 500)
-            {
-                if (execOnce == true)
-                {
-                    StopCoroutine(AttackRoutineB());
-                    damageSparks.SetActive(true);
-                    StartCoroutine(AttackRoutineA());
-                    execOnce = false;
-                }
-            }
-        
     }
 
     // This handles the timing of the jump and shoot sequence
-    private IEnumerator AttackRoutineA()
+    private IEnumerator AttackRoutine()
     {
-        while (life <= 500) // Infinite loop as long as the enemy is alive
+        while (true) // Infinite loop as long as the enemy is alive
         {
             // Wait for the cooldown
             yield return new WaitForSeconds(delay);
+
             if (player != null && Vector3.Distance(transform.position, player.position) < activeDistance)
             {
-
                 // Lock movement
                 isAttacking = true;
 
@@ -102,45 +89,10 @@ public class MonkeyAI : MonoBehaviour, IDamageable
 
                 // Jump
                 rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
-
+                
                 // Wait while in the air
                 yield return new WaitForSeconds(execTime);
-
-                // Shoot the projectile
-                if (attackType != null && shotPoint != null)
-                {
-                    Instantiate(attackType, shotPoint.position, shotPoint.rotation);
-                }
-
-                // PUT ARMS BACK DOWN IMMEDIATELY AFTER SHOOTING!
-                if (anim != null) anim.CrossFade("MonkeyIdle", 0.2f);
-
-                // Wait to recover on the ground (with arms already down)
-                yield return new WaitForSeconds(duration);
-
-                // Unlock movement
-                isAttacking = false;
-            }
-            
-        }
-    }
-    private IEnumerator AttackRoutineB()
-    {
-        while (life>500) // Infinite loop as long as the enemy is alive
-        {
-            // Wait for the cooldown
-            yield return new WaitForSeconds(delay);
-
-            if (player != null && Vector3.Distance(transform.position, player.position) < activeDistance)
-            {
-                // Lock movement
-                isAttacking = true;
-
-                if (anim != null) anim.CrossFade("MonkeyStomp", 0.1f);
-
-                // Wait while in the air
-                yield return new WaitForSeconds(execTime);
-
+                
                 // Shoot the projectile
                 if (attackType != null && shotPoint != null)
                 {
