@@ -25,6 +25,8 @@ public class PlayerHealth : MonoBehaviour
     private Color rojo = Color.red;
     private Color apagado = new Color(0.12f, 0.14f, 0.16f, 1f);
     public AudioSource sonidoGolpe;
+    public PlayerMovement PlayerMovement;
+    public LookAtMouseTest LookAtMouseTest;
 
     private void Start()
     {
@@ -46,7 +48,9 @@ public class PlayerHealth : MonoBehaviour
         if (vidaActual <= 0)
         {
             vidaActual = 0; // Keep health at 0
-            
+            PlayerMovement.enabled = false;
+            LookAtMouseTest.enabled = false;
+            modeloVisual.SetActive(true);
             // TRIGGER THE GAME OVER SCREEN HERE
             if (LevelManager.instance != null)
             {
