@@ -155,6 +155,11 @@ MonoBehaviour:
   prefabExplosion: {fileID: 7971194201444731578, guid: fc3be37210d19f744aad4fe9d9b9ed71, type: 3}
   sonidoExplosion: {fileID: 8300000, guid: be7ec0370dbe87948bfd2f701737bf4e, type: 3}
   botonPuerta: {fileID: 0}
+  modeloVisual: {fileID: 61306559760042316}
+  aumentoEscala: 0.12
+  pulsosPorSegundoInicio: 1
+  pulsosPorSegundoFinal: 4
+  volumenPitido: 1
 --- !u!1001 &527893677563670183
 PrefabInstance:
   m_ObjectHideFlags: 0
