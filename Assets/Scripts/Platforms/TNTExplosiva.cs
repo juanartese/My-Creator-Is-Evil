@@ -1,4 +1,3 @@
-
 using System.Collections;
 using UnityEngine;
 
@@ -20,16 +19,13 @@ public class TNTExplosiva : MonoBehaviour
 
         exploto = true;
 
-        // Aplicar dano al enemigo una sola vez por grupo
+        // Aplicar dano al enemigo una sola vez por grupo.
         if (grupoTNT != null)
         {
             grupoTNT.AplicarDano();
         }
 
-        // Buscar otras TNT cercanas
         PropagarCadena();
-
-        // Ejecutar explosion
         CrearExplosion();
 
         Destroy(gameObject);
@@ -49,9 +45,7 @@ public class TNTExplosiva : MonoBehaviour
     {
         yield return new WaitForSeconds(retraso);
 
-        // Propagar la explosion a otras TNT
         PropagarCadena();
-
         CrearExplosion();
 
         Destroy(gameObject);
@@ -78,9 +72,15 @@ public class TNTExplosiva : MonoBehaviour
 
     private void CrearExplosion()
     {
-        print("TNT: BOOM!");
+        Debug.Log("TNT: BOOM!");
 
-        // Reproducir sonido desde la camara
+        // El grupo se encarga de crear una unica nube grande.
+        if (grupoTNT != null)
+        {
+            grupoTNT.CrearHumoGrupo();
+        }
+
+        // Reproducir sonido desde la camara.
         if (sonidoExplosion != null)
         {
             Vector3 posicionSonido = transform.position;
@@ -97,7 +97,7 @@ public class TNTExplosiva : MonoBehaviour
             );
         }
 
-        // Crear efecto visual de explosion
+        // Mantener el efecto individual de cada caja.
         if (prefabExplosion != null)
         {
             GameObject explosion = Instantiate(
