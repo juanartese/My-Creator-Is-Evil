@@ -155,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
         if (parteSuperior <= playerFeet + 0.2f)
         {
             isGrounded = true;
+            usingJetpack = false;
             dJump = true;
             coyoteTimer = 0f;
 

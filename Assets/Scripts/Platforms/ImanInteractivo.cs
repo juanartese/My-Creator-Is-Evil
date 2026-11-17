@@ -14,7 +14,7 @@ public class ImanInteractivo : MonoBehaviour
     [Header("Configuracion")]
     public float distanciaInteraccion = 3f;
     public float distanciaInstalacion = 3f;
-    public Vector3 posicionEnMano = new Vector3(0.6f, 0.5f, 0f);
+    public Vector3 posicionEnMano;
     [Header("Holograma")]
     [SerializeField] private GameObject canvasInteracciones;
 
@@ -27,6 +27,7 @@ public class ImanInteractivo : MonoBehaviour
         {
             canvasInteracciones.SetActive(false);
         }
+        posicionEnMano = new Vector3(-1.2f, 3.7f, 0f);
     }
 
     private void Update()
