@@ -24,11 +24,11 @@ public class EnemigoGancho : MonoBehaviour, IDamageable
 
     // MOVIMIENTO DEL ENEMIGO
 
-    public float velocidadMovimiento = 3f;
+    public float velocidadMovimiento;
 
-    public float distanciaMaximaPersecucion = 12f;
+    public float distanciaMaximaPersecucion;
 
-    public float distanciaMinimaJugador = 3f;
+    public float distanciaMinimaJugador;
 
 
 

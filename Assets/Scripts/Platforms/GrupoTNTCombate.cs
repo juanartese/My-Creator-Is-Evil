@@ -6,31 +6,33 @@ public class GrupoTNTCombate : MonoBehaviour
     public Transform centroExplosion;
 
     public float radioExplosion = 5f;
-    
-    //Changed this from float to int
-    public int danoExplosion = 250; 
+    public int danoExplosion = 250;
+
+    [Header("Humo compartido del grupo")]
+    public GameObject prefabHumoGrupo;
+    public float duracionHumo = 6f;
 
     private bool danoAplicado = false;
+    private bool humoCreado = false;
 
     public void AplicarDano()
     {
         Debug.Log("TNT DEBUG - AplicarDano fue llamado");
 
-        // Evitar aplicar dano mas de una vez
+        // Evitar aplicar dano mas de una vez.
         if (danoAplicado)
         {
             Debug.Log("TNT DEBUG - El dano ya fue aplicado");
             return;
         }
 
-        // Comprobar referencias
+        // Comprobar referencias.
         if (enemigo == null || centroExplosion == null)
         {
             Debug.LogWarning("TNT DEBUG - Faltan referencias");
             return;
         }
 
-        // Calcular distancia al enemigo
         float distancia = Vector3.Distance(
             centroExplosion.position,
             enemigo.transform.position
@@ -39,21 +41,52 @@ public class GrupoTNTCombate : MonoBehaviour
         Debug.Log("TNT DEBUG - Distancia al enemigo: " + distancia);
         Debug.Log("TNT DEBUG - Radio configurado: " + radioExplosion);
 
-        // Aplicar dano si esta dentro del radio
         if (distancia <= radioExplosion)
         {
-            // Use the TakeDamage method instead of directly subtracting Life
             enemigo.TakeDamage(danoExplosion);
 
-            Debug.Log("TNT: Enemigo recibio 250 de dano");
-            Debug.Log("TNT DEBUG - Vida restante: " + enemigo.Life);
+            Debug.Log(
+                "TNT: Enemigo recibio " + danoExplosion + " de dano"
+            );
+
+            Debug.Log(
+                "TNT DEBUG - Vida restante: " + enemigo.Life
+            );
         }
         else
         {
             Debug.Log("TNT DEBUG - Enemigo fuera del radio");
         }
 
-        // Evitar dano duplicado
         danoAplicado = true;
+    }
+
+    public void CrearHumoGrupo()
+    {
+        // Crear una sola nube para todo este grupo.
+        if (humoCreado)
+            return;
+
+        if (prefabHumoGrupo == null || centroExplosion == null)
+            return;
+
+        humoCreado = true;
+
+        GameObject humo = Instantiate(
+            prefabHumoGrupo,
+            centroExplosion.position,
+            Quaternion.identity
+        );
+
+        // Reproducir las particulas del objeto y sus hijos.
+        ParticleSystem[] sistemas =
+            humo.GetComponentsInChildren<ParticleSystem>();
+
+        foreach (ParticleSystem sistema in sistemas)
+        {
+            sistema.Play(false);
+        }
+
+        Destroy(humo, duracionHumo);
     }
 }

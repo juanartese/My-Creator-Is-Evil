@@ -9,6 +9,10 @@ public class TNTTemporizador : MonoBehaviour
     public AudioClip sonidoExplosion;
     public BotonPuerta botonPuerta;
 
+    [Header("Humo de esta TNT")]
+    public GameObject prefabHumoNormal;
+    public float duracionHumo = 5f;
+
     [Header("Pulso visual")]
     public Transform modeloVisual;
 
@@ -173,7 +177,9 @@ public class TNTTemporizador : MonoBehaviour
         }
 
         activada = false;
-        fuentePitido.Stop();
+
+        if (fuentePitido != null)
+            fuentePitido.Stop();
 
         print("BOOM! La TNT exploto");
 
@@ -190,6 +196,7 @@ public class TNTTemporizador : MonoBehaviour
             );
         }
 
+        // Mantener la explosion original.
         if (prefabExplosion != null)
         {
             GameObject explosion = Instantiate(
@@ -207,10 +214,35 @@ public class TNTTemporizador : MonoBehaviour
             Destroy(explosion, 2f);
         }
 
+        // Crear la nube normal en la posicion de esta caja.
+        CrearHumoNormal();
+
         if (botonPuerta != null)
             botonPuerta.TNTExploto();
 
         Destroy(gameObject);
+    }
+
+    void CrearHumoNormal()
+    {
+        if (prefabHumoNormal == null)
+            return;
+
+        GameObject humo = Instantiate(
+            prefabHumoNormal,
+            transform.position,
+            Quaternion.identity
+        );
+
+        ParticleSystem[] sistemas =
+            humo.GetComponentsInChildren<ParticleSystem>();
+
+        foreach (ParticleSystem sistema in sistemas)
+        {
+            sistema.Play(false);
+        }
+
+        Destroy(humo, duracionHumo);
     }
 
     void OnDestroy()

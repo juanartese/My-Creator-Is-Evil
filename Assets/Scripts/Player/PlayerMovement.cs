@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public float coyoteTime = 0.1f;
     private float coyoteTimer = 0f;
     public bool usingJetpack = false;
+    public PlayerHealth PlayerHealth;
 
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
@@ -100,8 +101,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         if (PauseMenu.GameIsPaused) return;
-
-        var moveDirection =
+    var moveDirection =
             (Vector3)moveInput.action.ReadValue<Vector2>() * Speed;
 
         rb.linearVelocity = new Vector3(
@@ -155,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
         if (parteSuperior <= playerFeet + 0.2f)
         {
             isGrounded = true;
+            usingJetpack = false;
             dJump = true;
             coyoteTimer = 0f;
 
