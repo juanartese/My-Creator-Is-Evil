@@ -19,39 +19,52 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        gameOverUI.SetActive(false);
-        victoryUI.SetActive(false);
-        Time.timeScale = 1f; 
+        if (gameOverUI != null) gameOverUI.SetActive(false);
+        if (victoryUI != null) victoryUI.SetActive(false);
+        Time.timeScale = 1f;
+        PauseMenu.GameIsPaused = false;
     }
 
-public void GameOver()
+    public void GameOver()
     {
-        gameOverUI.SetActive(true);
-        //Time.timeScale = 0f; 
-        
+        if (gameOverUI != null)
+        {
+            gameOverUI.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("LevelManager: gameOverUI is not assigned in the Inspector!");
+        }
+
+        Time.timeScale = 0f;
+        PauseMenu.GameIsPaused = true;
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
     public void Victory()
     {
-        victoryUI.SetActive(true);
-        Time.timeScale = 0f; 
-        
+        if (victoryUI != null) victoryUI.SetActive(true);
+        Time.timeScale = 0f;
+        PauseMenu.GameIsPaused = true;
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
     public void RestartLevel()
     {
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;
+        PauseMenu.GameIsPaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void LoadMainMenu()
     {
-        Time.timeScale = 1f; 
-        SceneManager.LoadScene("MainMenu"); 
+        Time.timeScale = 1f;
+        PauseMenu.GameIsPaused = false;
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()

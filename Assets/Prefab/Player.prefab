@@ -520,6 +520,7 @@ MonoBehaviour:
   rb: {fileID: 3031541744876083212}
   coyoteTime: 0.07
   usingJetpack: 0
+  PlayerHealth: {fileID: 0}
   bulletPrefab: {fileID: 5747996838830716436, guid: d9ffa678f05157341a0e0f0a16b3ad49, type: 3}
   firePoint: {fileID: 3393940920624628759}
   bulletForce: 200
@@ -627,8 +628,10 @@ MonoBehaviour:
   vida4: {fileID: 0}
   llaveCarga: {fileID: 0}
   modeloVisual: {fileID: 1588854173860371910}
+  rb: {fileID: 3031541744876083212}
   sonidoGolpe: {fileID: 4602172494328167471}
-  animator: {fileID: 2420858360554477004}
+  PlayerMovement: {fileID: 3166730358997257229}
+  LookAtMouseTest: {fileID: 2604402422136460676}
 --- !u!1001 &712819983136578342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -915,6 +918,7 @@ MonoBehaviour:
   moveDirection: 0
   animDirection: 0
   playerAngle: 0
+  PlayerHealth: {fileID: 6780973037661059391}
 --- !u!4 &2109776856154130300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 03ce9292c5d01784a893d7a0a3a9900b, type: 3}

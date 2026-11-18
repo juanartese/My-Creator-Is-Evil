@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 5452078352506392505}
   - component: {fileID: 1116640381719396872}
   - component: {fileID: 3136290404436205460}
+  - component: {fileID: -7602274750330578503}
   - component: {fileID: 5220161266706625523}
   - component: {fileID: 4868818850899833610}
   - component: {fileID: 2792253621693017695}
@@ -106,6 +107,21 @@ MonoBehaviour:
   execTime: 0.85
   duration: 0.5
   pickupPrefab: {fileID: 8747462885563316423, guid: 12af8269506bf494baa05d0828192efb, type: 3}
+  damageSparks: {fileID: 0}
+--- !u!114 &-7602274750330578503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5227266187369820847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca24cfd6cff0434bbdc1fad320d4749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathEffectPrefab: {fileID: 2060541827064621684, guid: 951453cf566583246baee29328b0c076, type: 3}
+  spawnOffset: {x: 0, y: 0.5, z: 0}
 --- !u!23 &5220161266706625523
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -225,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0af010832e098543a496a9d782f8260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashMaterial: {fileID: 0}
   flashDuration: 0.1
 --- !u!82 &191137770892831949
 AudioSource:

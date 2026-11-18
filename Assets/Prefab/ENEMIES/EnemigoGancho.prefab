@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 2597315935177471608}
   - component: {fileID: 4673184676101216978}
   - component: {fileID: 639403578489617388}
+  - component: {fileID: 3590903109736817961}
   - component: {fileID: 5354531358141710674}
   - component: {fileID: 4749131417196972416}
   - component: {fileID: 5105817915338015754}
@@ -535,6 +536,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 0}
   flashDuration: 0.1
+--- !u!114 &3590903109736817961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020355260793119319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca24cfd6cff0434bbdc1fad320d4749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathEffectPrefab: {fileID: 2060541827064621684, guid: 951453cf566583246baee29328b0c076, type: 3}
+  spawnOffset: {x: 0, y: 0.5, z: 0}
 --- !u!120 &5354531358141710674
 LineRenderer:
   serializedVersion: 2
