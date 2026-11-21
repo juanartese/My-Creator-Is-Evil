@@ -5044,7 +5044,7 @@ PrefabInstance:
     - target: {fileID: 4707380783321774900, guid: dd09e58ff8b1ef14e882a01ddd4bef34, type: 3}
       propertyPath: grupoTNT
       value: 
-      objectReference: {fileID: 1080530132}
+      objectReference: {fileID: 949677397}
     - target: {fileID: 4707380783321774900, guid: dd09e58ff8b1ef14e882a01ddd4bef34, type: 3}
       propertyPath: prefabExplosion
       value: 
@@ -6799,9 +6799,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabExplosion: {fileID: 1288954057}
   sonidoExplosion: {fileID: 8300000, guid: be7ec0370dbe87948bfd2f701737bf4e, type: 3}
-  grupoTNT: {fileID: 1080530132}
+  grupoTNT: {fileID: 949677397}
   radioCadena: 5
   retrasoCadena: 0.2
+--- !u!4 &261207897 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6398477122097592071, guid: 2496e1d9ccf2cf74181447eb3261ee9a, type: 3}
+  m_PrefabInstance: {fileID: 289069760}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &261865339 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7442053869469547958, guid: bd2d26d41e7c4b644b3f913c98b49a19, type: 3}
@@ -10896,7 +10901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabExplosion: {fileID: 1288954057}
   sonidoExplosion: {fileID: 8300000, guid: be7ec0370dbe87948bfd2f701737bf4e, type: 3}
-  grupoTNT: {fileID: 1080530132}
+  grupoTNT: {fileID: 1445769637}
   radioCadena: 5
   retrasoCadena: 0.2
 --- !u!1 &420574939
@@ -22258,7 +22263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2891074997309094772, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.24
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 2891074997309094772, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22266,7 +22271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2891074997309094772, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -47.6
+      value: -48
       objectReference: {fileID: 0}
     - target: {fileID: 2891074997309094772, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: m_LocalRotation.w
@@ -30198,7 +30203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabExplosion: {fileID: 1288954057}
   sonidoExplosion: {fileID: 8300000, guid: be7ec0370dbe87948bfd2f701737bf4e, type: 3}
-  grupoTNT: {fileID: 1080530132}
+  grupoTNT: {fileID: 949677397}
   radioCadena: 5
   retrasoCadena: 0.2
 --- !u!1001 &898344874
@@ -32166,6 +32171,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944858307}
   m_Mesh: {fileID: -3940724484685946264, guid: bd2d26d41e7c4b644b3f913c98b49a19, type: 3}
+--- !u!1 &949677396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 949677398}
+  - component: {fileID: 949677397}
+  m_Layer: 0
+  m_Name: GrupoTNT_Izquierda
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &949677397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949677396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e95b00c5f3c6714fb5e27904696fe5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemigo: {fileID: 1774825870}
+  centroExplosion: {fileID: 261207897}
+  radioExplosion: 15
+  danoExplosion: 250
+  prefabHumoGrupo: {fileID: 3794667450542972397, guid: d6eeb94d107482d4ba6265328f0f3b31, type: 3}
+  duracionHumo: 6
+--- !u!4 &949677398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949677396}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 103.04, y: 49.79, z: -1.16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &950779177
 GameObject:
   m_ObjectHideFlags: 0
@@ -35933,7 +35988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemigo: {fileID: 1774825870}
-  centroExplosion: {fileID: 1080530133}
+  centroExplosion: {fileID: 1415645645}
   radioExplosion: 15
   danoExplosion: 250
   prefabHumoGrupo: {fileID: 3794667450542972397, guid: d6eeb94d107482d4ba6265328f0f3b31, type: 3}
@@ -36257,7 +36312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabExplosion: {fileID: 1288954057}
   sonidoExplosion: {fileID: 8300000, guid: be7ec0370dbe87948bfd2f701737bf4e, type: 3}
-  grupoTNT: {fileID: 1080530132}
+  grupoTNT: {fileID: 1445769637}
   radioCadena: 5
   retrasoCadena: 0.2
 --- !u!4 &1098652458 stripped
@@ -48517,9 +48572,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3710642838060622210, guid: 0d483e1b0da03884ea821bf10dd6ff64, type: 3}
+      propertyPath: velocidad
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4673184676101216978, guid: 0d483e1b0da03884ea821bf10dd6ff64, type: 3}
       propertyPath: Life
-      value: 1000
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 4673184676101216978, guid: 0d483e1b0da03884ea821bf10dd6ff64, type: 3}
       propertyPath: Player
@@ -48539,7 +48598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4673184676101216978, guid: 0d483e1b0da03884ea821bf10dd6ff64, type: 3}
       propertyPath: tiempoEntreDisparos
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4673184676101216978, guid: 0d483e1b0da03884ea821bf10dd6ff64, type: 3}
       propertyPath: velocidadMovimiento
@@ -48842,6 +48901,11 @@ MonoBehaviour:
   grupoTNT: {fileID: 1080530132}
   radioCadena: 5
   retrasoCadena: 0.2
+--- !u!4 &1415645645 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6398477122097592071, guid: 2496e1d9ccf2cf74181447eb3261ee9a, type: 3}
+  m_PrefabInstance: {fileID: 615280070}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1421989315
 GameObject:
   m_ObjectHideFlags: 0
@@ -49606,6 +49670,56 @@ PrefabInstance:
       addedObject: {fileID: 1137068108}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed221b2e53064f543a3b26fe4ec4a9c2, type: 3}
+--- !u!1 &1445769636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1445769638}
+  - component: {fileID: 1445769637}
+  m_Layer: 0
+  m_Name: GrupoTNT_Derecha
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1445769637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445769636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e95b00c5f3c6714fb5e27904696fe5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemigo: {fileID: 1774825870}
+  centroExplosion: {fileID: 1553473163}
+  radioExplosion: 15
+  danoExplosion: 250
+  prefabHumoGrupo: {fileID: 3794667450542972397, guid: d6eeb94d107482d4ba6265328f0f3b31, type: 3}
+  duracionHumo: 6
+--- !u!4 &1445769638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445769636}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 103.04, y: 49.79, z: -1.16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1446108976
 GameObject:
   m_ObjectHideFlags: 0
@@ -52743,9 +52857,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabExplosion: {fileID: 1288954057}
   sonidoExplosion: {fileID: 8300000, guid: be7ec0370dbe87948bfd2f701737bf4e, type: 3}
-  grupoTNT: {fileID: 1080530132}
+  grupoTNT: {fileID: 1445769637}
   radioCadena: 5
   retrasoCadena: 0.2
+--- !u!4 &1553473163 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6398477122097592071, guid: 2496e1d9ccf2cf74181447eb3261ee9a, type: 3}
+  m_PrefabInstance: {fileID: 958522521}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1556251387 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ed221b2e53064f543a3b26fe4ec4a9c2, type: 3}
@@ -66095,7 +66214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabExplosion: {fileID: 1288954057}
   sonidoExplosion: {fileID: 8300000, guid: be7ec0370dbe87948bfd2f701737bf4e, type: 3}
-  grupoTNT: {fileID: 1080530132}
+  grupoTNT: {fileID: 949677397}
   radioCadena: 5
   retrasoCadena: 0.2
 --- !u!4 &2031752856 stripped
@@ -68343,7 +68462,7 @@ PrefabInstance:
     - target: {fileID: 4707380783321774900, guid: dd09e58ff8b1ef14e882a01ddd4bef34, type: 3}
       propertyPath: grupoTNT
       value: 
-      objectReference: {fileID: 1080530132}
+      objectReference: {fileID: 1445769637}
     - target: {fileID: 4707380783321774900, guid: dd09e58ff8b1ef14e882a01ddd4bef34, type: 3}
       propertyPath: prefabExplosion
       value: 
@@ -68562,6 +68681,8 @@ SceneRoots:
   - {fileID: 619048922}
   - {fileID: 954229100928458973}
   - {fileID: 1080530133}
+  - {fileID: 949677398}
+  - {fileID: 1445769638}
   - {fileID: 1806434695105197685}
   - {fileID: 368700662}
   - {fileID: 795085989}
