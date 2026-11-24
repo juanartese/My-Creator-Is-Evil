@@ -36795,11 +36795,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2891074997309094772, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -110.8
+      value: -50.3
       objectReference: {fileID: 0}
     - target: {fileID: 2891074997309094772, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 2891074997309094772, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36837,6 +36837,10 @@ PrefabInstance:
       propertyPath: jPackForce
       value: 130
       objectReference: {fileID: 0}
+    - target: {fileID: 3166730358997257229, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
+      propertyPath: PlayerHealth
+      value: 
+      objectReference: {fileID: 1975649954}
     - target: {fileID: 3166730358997257229, guid: a851fc9cd25f5c942862389750f5b512, type: 3}
       propertyPath: bananaDerecha
       value: 
