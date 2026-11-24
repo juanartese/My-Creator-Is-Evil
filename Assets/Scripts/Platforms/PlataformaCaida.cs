@@ -12,12 +12,13 @@ public class PlataformaCaida : MonoBehaviour
     private Rigidbody rb;
     private Vector3 posicionInicial;
     private Quaternion rotacionInicial;
-    public Renderer renderPlataforma;
+    private Renderer renderPlataforma;
     private bool activada = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        renderPlataforma = GetComponent<Renderer>();
         posicionInicial = transform.position;
         rotacionInicial = transform.rotation;
         chispas.Stop();
